@@ -168,7 +168,7 @@ const data = () => {
       <div className="w-full flex justify-center flex-col flex-nowrap items-center">
         <div className="w-[60em] p-4 rounded-2xlw-20 shadow-2xl shadow-black   ">
           <Bar ref={chartRef} className=" " data={data()}  options={options} />
-            <div className=" flex flex-row   justify-center ">
+            <div className=" flex flex-row justify-center">
 
               <button className={` rounded-r-lg `} onClick={()=>{onUpdate('-')}}> 
               <img src="https://cdn.icon-icons.com/icons2/1339/PNG/512/arrowpointingleft_87473.png"className="w-5 h-5 object-contain" />
