@@ -4,15 +4,13 @@ export default class Activity extends Component {
     super();
     this.Activity = Activity;
   }
-  async GetactivityName() {
-    const req = await fetch("./hi.csv");
-    const DataText = await req.text();
-    console.log("====================================");
-    console.log(DataText);
-    console.log("====================================");
+  async GetactivityName(path) {
+    // const req = await fetch("./hi.csv");
+    // const DataText = await req.text();
+
     const activitiesNames = [];
 
-    const titre = await DataText.split("\n").slice(0, 1);
+    const titre = await path.split("\n").slice(0, 1);
     for (var k = 0; k < titre.length; k++) {
       const til = titre[0].split(",");
       til.forEach((ele) => {
@@ -25,7 +23,7 @@ export default class Activity extends Component {
     );
     // console.log(filtedArray);
     //to rows S!:
-    const rows = DataText.split("\n").slice(1, DataText.length);
+    const rows = path.split("\n").slice(1, path.length);
     const Array_data = [];
     for (var i = 0; i < rows.length; i++) {
       const row = rows[i].split(",");

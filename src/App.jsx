@@ -2,29 +2,23 @@
 // import Habbits from "./habbits";
 import { notion } from "./assets";
 import { useRef, useState } from "react";
+import Activity from "./assets/Acivities";
 
 const App = () => {
-  const [CsvPath, setCsvPath] = useState('');
+  const [Csvtext, setCsvtext] = useState();
   const buttonRef = useRef(null);
 
   
-  // const handleFileChange = (event) => {
-  //   setCsvPath(event.target.value);
-  //   console.log(event.target.value);
-  
-
-  // };
-  
   const handleFileChange = (event) => {
+    const InitialAct=new Activity
     const file = event.target.files[0];
     if (file) {
-      // Use FileReader to read the selected file
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = async (e) => {
         const csvText = e.target.result;
-        
-        console.log(csvText);
-        
+        const Text= await InitialAct.GetactivityName(csvText)
+        setCsvtext(Text)
+        console.log(Csvtext);
         // Use PapaParse to parse the CSV data
         // Papa.parse(csvText, {
         //   complete: (result) => {
@@ -59,10 +53,9 @@ const App = () => {
           className="hidden"
         />
         <br />
-        {CsvPath && (
+        {Csvtext && (
           <div>
-            <h1 className="text-white text-[24px]">{CsvPath}</h1>{" "}
-            <img src={CsvPath} alt="edf" />
+            <h1 className="text-white text-[24px]">{''}</h1>{" "}
           </div>
         )}
       </div>
