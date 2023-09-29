@@ -1,11 +1,10 @@
 // import { useEffect,useState } from "react";
 // import BarChart from "./App";
 // import Activity from "./assets/Acivities";
-// const Meth = ()=>{  
+// const Meth = ()=>{
 //                   const [date,setdate]=useState(null)
 //                   const [donnee,setdonnee]=useState(null)
 //                   const [pas,setpas]=useState(0)
-
 
 // //NOTE:OPTInse
 // const options={ scales: {
@@ -32,9 +31,9 @@
 //         }
 //           useEffect(()=>{
 //                     const fetchAct=async()=>{
-//           try{      
+//           try{
 //                     const Acti= new Activity
-//                     let res= await Acti.GetNumbers() 
+//                     let res= await Acti.GetNumbers()
 //                 setdate(res.Weeks)
 //                 setdonnee(res.TimeOn)
 //                 console.log(date,donnee);
@@ -52,7 +51,7 @@
 //                     label:"testing",
 //                     // type:'line',
 //                     data:[22],
-                    
+
 //                     backgroundColor: [
 //                       'rgba(255, 99, 132, 0.2)',
 //                       'rgba(54, 162, 235, 0.2)',
