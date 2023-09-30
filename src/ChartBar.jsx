@@ -1,17 +1,26 @@
 import { useEffect, useRef, useState } from "react";
-import Activity from "./assets/Acivities";
+// import Activity from "./assets/Acivities";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { colors } from "./constances/";
+import PropTypes from "prop-types";
+
 Chart.register(...registerables);
 
-// import PropTypes from "prop-types";
-
-const BarChart = () => {
+const BarChart = (getdata) => {
   const chartRef = useRef(null);
-  const [testate, settestate] = useState([]);
-  const [days, setdays] = useState([[]]);
+  const [numbers, setnumbers] = useState([]);
   const [step, setstep] = useState(0);
+
+  useEffect(() => {
+    const ApplyNumers = () => {};
+
+    const data = getdata.getdata.subArrayCollection;
+    let min = data.map((e) => e.map((e) => e.numbers));
+    setnumbers(min);
+    ApplyNumers();
+  }, [getdata]);
+
   const options = {
     scales: {
       y: {
@@ -41,36 +50,21 @@ const BarChart = () => {
       legend: {
         position: "top",
       },
-      // title: {
-      //   display: true,
-      //   text: '<h1> Time Spent on phone each week </h1>',
-      // },
+      title: {
+        display: true,
+        text: '<h1> Time Spent on phone each week </h1>',
+      },
     },
   };
-  useEffect(() => {
-    const fet = async () => {
-      const Avt = new Activity();
-      let funinitiale = await Avt.GetactivityName();
-      const data = funinitiale.subArrayCollection;
-      let min = data.map((e) => e.map((el) => parseInt(el.numbers)));
-      settestate(min);
-      let days = data.map((e) => e.map((el) => el.date));
-      setdays(days);
 
-      const lastIndex = days.length - 1;
-      setstep(lastIndex);
-    };
-    fet();
-  }, []);
-
-  const onUpdate = (symb) => {
-    if (symb === "+" && days?.length - 1 > step) {
-      setstep((prevstep) => prevstep + 1);
-    }
-    if (symb === "-" && step > 0) {
-      setstep((prevstep) => prevstep - 1);
-    }
-  };
+  // const onUpdate = (symb) => {
+  //   if (symb === "+" && days?.length - 1 > step) {
+  //     setstep((prevstep) => prevstep + 1);
+  //   }
+  //   if (symb === "-" && step > 0) {
+  //     setstep((prevstep) => prevstep - 1);
+  //   }
+  // };
   const data = () => {
     return {
       labels: ["Mon", "Tur", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -80,7 +74,7 @@ const BarChart = () => {
           // fill: "start",
           label: "Minutes",
           type: "line",
-          data: testate ? testate[step] : null,
+          data: numbers ? numbers[step] : null,
           fill: true,
           pointBackgroundColor: colors.purple.default,
           borderColor: colors.purple.default,
@@ -157,5 +151,8 @@ const BarChart = () => {
     </div>
   );
 };
-
+// BarChart.propTypes = {
+//   props: PropTypes.array.isRequired,
+//   // index: PropTypes.number.isRequired,
+// };
 export default BarChart;
