@@ -9,15 +9,18 @@ Chart.register(...registerables);
 
 const BarChart = (getdata) => {
   const chartRef = useRef(null);
-  const [numbers, setnumbers] = useState([]);
+  const [numbers, setnumbers] = useState(null);
   const [step, setstep] = useState(0);
 
   useEffect(() => {
     const ApplyNumers = () => {};
 
-    const data = getdata.getdata.subArrayCollection;
+    const data = getdata?.getdata.subArrayCollection;
+    if(data !== null){
     let min = data.map((e) => e.map((e) => e.numbers));
-    setnumbers(min);
+    setnumbers(min);}
+    else return null
+
     ApplyNumers();
   }, [getdata]);
 
@@ -27,7 +30,7 @@ const BarChart = (getdata) => {
         title: {
           color: "white",
           display: true,
-          text: "Minutes",
+          // text: "Minutes",
         },
 
         grid: {
@@ -50,10 +53,10 @@ const BarChart = (getdata) => {
       legend: {
         position: "top",
       },
-      title: {
-        display: true,
-        text: '<h1> Time Spent on phone each week </h1>',
-      },
+      // title: {
+      //   display: true,
+      //   text: "<h1> Time Spent on phone each week </h1>",
+      // },
     },
   };
 
@@ -74,7 +77,7 @@ const BarChart = (getdata) => {
           // fill: "start",
           label: "Minutes",
           type: "line",
-          data: numbers ? numbers[step] : null,
+          data: numbers ? numbers[step] : [1, 1.8, 5, 5, 9, 4, 1],
           fill: true,
           pointBackgroundColor: colors.purple.default,
           borderColor: colors.purple.default,
@@ -96,8 +99,8 @@ const BarChart = (getdata) => {
   //  shadow-2xl  shadow-indigo-500/50
 
   return (
-    <div className=" w-[40em]  m-8 ">
-      <div className="flex justify-center flex-col flex-nowrap  rounded-3xl p-5  items-center shadow-2xl    ">
+    <div className=" w-[35em]  m-8   ">
+      <div className="flex justify-center flex-col flex-wrap   rounded-3xl p-5 items-center  border  ">
         <h1 className="p-3 text-[23px]  text-center ">
           Time Spent on phone each week
         </h1>

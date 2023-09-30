@@ -1,14 +1,15 @@
-import BarChart from "./ChartBar";
-// import Habbits from "./habbits";
+// import BarChart from "./ChartBar";
 import { notion } from "./assets";
 import { useRef, useState } from "react";
 import Activity from "./assets/Acivities";
+import Habbits from "./habbits";
+import BarChart from "./ChartBar";
+// import Habbits from "./habbits";
 
 const App = () => {
   const buttonRef = useRef(null);
-  const [Text, settext] = useState(null);
+  const [FetchedData, setFetchedData] = useState(null);
 
-  // const ccallfile=
   const callfile = (file) => {
     let InitialClass = new Activity();
 
@@ -16,18 +17,22 @@ const App = () => {
     reader.onload = (e) => {
       var text = e.target.result;
       const infos = InitialClass.GetactivityName(text);
-      // console.log(infos);
-      settext(infos);
+
+      setFetchedData(infos);
     };
 
     reader.readAsText(file);
-    return Text;
+    return FetchedData;
   };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
-    if (file) return callfile(file);
+    if (file) {
+      setTimeout(() => {
+        callfile(file);
+      }, 0);
+    }
   };
 
   const Handelclick = () => {
@@ -36,24 +41,28 @@ const App = () => {
     }
   };
   return (
-    <div className=" w-full flex flex-col items-end justify-end flex-wrap   ">
-      <div className="  flex flex-row m-10  ">
-        <button
-          className="text-black  bg-white  flex flex-row items-center p-1 hover:bg-stone-200   "
-          onClick={() => Handelclick()}
-        >
-          <img src={notion} alt="notion" className="w-10 h-10 " />
-          {" Import table from Notion"}
-        </button>
-        <input
-          ref={buttonRef}
-          type="file"
-          onChange={handleFileChange}
-          className="hidden"
-        />
-        <br />
+    <div className="flex w-full justify-end ">
+      <div className="  w-fit flex flex-col border border-stone-500  m-10 h-screen ">
+        <div className="">
+          <button
+            className="text-black  bg-white w-36 rounded-md  flex flex-row items-center p-1 hover:bg-stone-200   "
+            onClick={() => Handelclick()}
+          >
+            <img src={notion} alt="notion" className="w-10 h-10 " />
+            {/* {" Import table from Notion"} */}
+          </button>
+
+          <input
+            ref={buttonRef}
+            type="file"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+        </div>  {
+        FetchedData && ( <div><Habbits acivitiesNames={FetchedData}/><BarChart getdata={FetchedData}/></div> )
+      }
       </div>
-      {Text && <BarChart getdata={Text} />}
+    
     </div>
   );
 };
