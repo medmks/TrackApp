@@ -3,23 +3,27 @@ import { useEffect, useRef, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { colors } from "./constances/";
-import PropTypes from "prop-types";
 
 Chart.register(...registerables);
 
 const BarChart = (getdata) => {
   const chartRef = useRef(null);
   const [numbers, setnumbers] = useState(null);
-  const [step, setstep] = useState(0);
+  const [days, setdays] = useState(null);
 
+  const [step, setstep] = useState(0);
   useEffect(() => {
     const ApplyNumers = () => {};
-
+    console.log("HIHIHIHIHI");
     const data = getdata?.getdata.subArrayCollection;
-    if(data !== null){
+    // if(data !== null){
     let min = data.map((e) => e.map((e) => e.numbers));
-    setnumbers(min);}
-    else return null
+    let days = data.map((e) => e.map((e) => e.date));
+    console.log(days);
+    setdays(days);
+    setnumbers(min);
+
+    // else return null
 
     ApplyNumers();
   }, [getdata]);
@@ -60,14 +64,14 @@ const BarChart = (getdata) => {
     },
   };
 
-  // const onUpdate = (symb) => {
-  //   if (symb === "+" && days?.length - 1 > step) {
-  //     setstep((prevstep) => prevstep + 1);
-  //   }
-  //   if (symb === "-" && step > 0) {
-  //     setstep((prevstep) => prevstep - 1);
-  //   }
-  // };
+  const onUpdate = (symb) => {
+    if (symb === "+" && days?.length - 1 > step) {
+      setstep((prevstep) => prevstep + 1);
+    }
+    if (symb === "-" && step > 0) {
+      setstep((prevstep) => prevstep - 1);
+    }
+  };
   const data = () => {
     return {
       labels: ["Mon", "Tur", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -77,7 +81,7 @@ const BarChart = (getdata) => {
           // fill: "start",
           label: "Minutes",
           type: "line",
-          data: numbers ? numbers[step] : [1, 1.8, 5, 5, 9, 4, 1],
+          data: numbers ? numbers[step] : null,
           fill: true,
           pointBackgroundColor: colors.purple.default,
           borderColor: colors.purple.default,
@@ -100,12 +104,12 @@ const BarChart = (getdata) => {
 
   return (
     <div className=" w-[35em]  m-8   ">
-      <div className="flex justify-center flex-col flex-wrap   rounded-3xl p-5 items-center  border  ">
-        <h1 className="p-3 text-[23px]  text-center ">
+      <div className="flex justify-center flex-col flex-wrap   rounded-3xl p-5 items-center    ">
+        {/* <h1 className="p-3 text-[23px]  text-center ">
           Time Spent on phone each week
-        </h1>
+        </h1> */}
         <Bar ref={chartRef} className=" " data={data()} options={options} />
-        {/* <div className=" flex flex-row justify-center     w-full rounded-2xl ">
+        <div className=" flex flex-row justify-center     w-full rounded-2xl ">
           <button
             className={` rounded-l-lg `}
             onClick={() => {
@@ -116,7 +120,7 @@ const BarChart = (getdata) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill=" white"
-              className="w-8 h-8  rounded-lg   "
+              className="w-8 h-8  rounded-lg "
             >
               <path
                 fillRule="evenodd"
@@ -126,11 +130,12 @@ const BarChart = (getdata) => {
             </svg>
           </button>
           <h2 className=" flex items-center text-secondary text-[20px] p-5 ">
-            {days[step][0]}
+            {days && days[step][0]}
           </h2>
           <button
             className={`${
-              testate[testate.length - 1] == testate[step] ? null : null
+              null
+              // numbers[numbers.length - 1] && !numbers == numbers[step] ? null : null
             } rounded-r-lg   `}
             onClick={() => {
               onUpdate("+");
@@ -149,7 +154,7 @@ const BarChart = (getdata) => {
               />
             </svg>
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );
