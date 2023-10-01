@@ -20,12 +20,12 @@ HabbitTable.propTypes = {
   element: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
-const Habbits = (acivitiesNames) => {
+const Habbits = ({ acivitiesNames }) => {
   const [Taskes, setTaskes] = useState(["Gym", "Jogging", "Coding"]);
 
   useEffect(() => {
-    const Getnames =  () => {
-      const data= acivitiesNames.acivitiesNames.filtedArray
+    const Getnames = () => {
+      const data = acivitiesNames();
       setTaskes(data);
       console.log(Taskes);
     };
@@ -39,13 +39,17 @@ const Habbits = (acivitiesNames) => {
           <h1 className=" text-white text-[25px] ">Habbits Progression</h1>
         </div>
         <div className="p-4">
-          {Taskes &&
+          {/* {Taskes &&
             Taskes?.map((e, i) => (
               <HabbitTable key={i} element={e} index={i + 4} />
-            ))}
+            ))} */}
         </div>
       </div>
     </div>
   );
 };
+
 export default Habbits;
+Habbits.propTypes = {
+  acivitiesNames: PropTypes.func.isRequired,
+};
