@@ -55,7 +55,7 @@ const App = () => {
         <div className="flex flex-col w-full">
           <Header/>
           <div className="flex flex-row">
-            <Mainpage/>
+            <Mainpage/> 
             <SideBar/>
           </div>
         </div>
