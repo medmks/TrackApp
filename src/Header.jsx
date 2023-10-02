@@ -1,13 +1,13 @@
 const Header = () => {
   return (
-    <div className=" w-full h-20 border-l  border-stone-500 ">
-      <div className=" flex flex-row  items-center m-3 justify-between ">
-        <h1 className=" text-[24px] font-medium ">Home</h1>
+    <div className=" w-full h-16  border-l  border-stone-500  ">
+      <div className=" flex flex-row  items-center  justify-between p-2  ">
+        <h1 className="ml-2 text-[26px]  font-medium ">Home</h1>
         <div className=" flex flex-row gap-3 ">
-          <button className="bg-violet-700 p-3 w-52     rounded-3xl text-center font-normal text hover:bg-violet-600  ">
+          <button className="bg-indigo-700  p-3 w-48      rounded-3xl text-center font-normal text hover:bg-indigo-600  ">
             Track You Tasks{" "}
           </button>
-          <button className="bg-gray-700 w-56   p-3 rounded-3xl text-center font-normal text hover:bg-gray-600  ">
+          <button className="bg-gray-700 w-48   p-3 rounded-3xl text-center font-normal text hover:bg-gray-600  ">
             Send & receive{" "}
           </button>
           <button className="bg-zinc-900  rounded-full p-3 flex justify-center items-center hover:bg-zinc-700 ">
@@ -27,7 +27,7 @@ const Header = () => {
             </svg>
           </button>
           &nbsp;
-          <div className="h-8  w-[1px] bg-slate-700  mt-3" />
+          <div className="h-8  w-[1px] bg-slate-700  mt-2" />
           &nbsp;
           <button className="bg-zinc-900  rounded-full p-3 flex justify-center items-center hover:bg-zinc-700 ">
             <svg
