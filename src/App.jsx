@@ -51,12 +51,12 @@ const App = () => {
   return (
     <div className=" ">
       <div className="  flex flex-row  bg-black ">
-        <Toolbar/>
+        <Toolbar />
         <div className="flex flex-col w-full">
-          <Header/>
+          <Header />
           <div className="flex flex-row">
-            <Mainpage/> 
-            <SideBar/>
+            <Mainpage />
+            <SideBar />
           </div>
         </div>
       </div>
