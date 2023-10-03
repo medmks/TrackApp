@@ -6,27 +6,30 @@ import { colors } from "./constances/";
 
 Chart.register(...registerables);
 
-const BarChart = (getdata) => {
+const BarChart = () => {
   const chartRef = useRef(null);
-  const [numbers, setnumbers] = useState(null);
-  const [days, setdays] = useState(null);
+  const [numbers, setnumbers] = useState([21,72,43,64,57,61,77,89,89,10]);
+  const [days, setdays] = useState(['1-7jun','7-14jun','12','13','14']);
 
   const [step, setstep] = useState(0);
-  useEffect(() => {
-    const ApplyNumers = () => {};
-    console.log("HIHIHIHIHI");
-    const data = getdata?.getdata.subArrayCollection;
-    // if(data !== null){
-    let min = data.map((e) => e.map((e) => e.numbers));
-    let days = data.map((e) => e.map((e) => e.date));
-    console.log(days);
-    setdays(days);
-    setnumbers(min);
+//   useEffect(() => {
+//     const ApplyNumers =async () => {
+//       console.log("HIHIHIHIHI");
+//     // const data = await getdata?.getdata.subArrayCollection;
+//     // if(data !== null){
+//     // let min = data.map((e) => e.map((e) => e.numbers));
+//     // let days = data.map((e) => e.map((e) => e.date));
+//     // console.log(days);
+//     setdays(days);
+//     setnumbers(min);
+//     };
 
-    // else return null
+// if(getdata !== null ){
+//     return  ApplyNumers();
+// }
+//     // else return null
 
-    ApplyNumers();
-  }, [getdata]);
+//   }, [getdata]);
 
   const options = {
     scales: {
@@ -81,7 +84,7 @@ const BarChart = (getdata) => {
           // fill: "start",
           label: "Minutes",
           type: "line",
-          data: numbers ? numbers[step] : null,
+          data: numbers ? numbers : null,
           fill: true,
           pointBackgroundColor: colors.purple.default,
           borderColor: colors.purple.default,
@@ -130,7 +133,7 @@ const BarChart = (getdata) => {
             </svg>
           </button>
           <h2 className=" flex items-center text-secondary text-[20px] p-5 ">
-            {days && days[step][0]}
+            {days && days[step]}
           </h2>
           <button
             className={`${

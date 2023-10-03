@@ -23,26 +23,26 @@ HabbitTable.propTypes = {
 const Habbits = ({ acivitiesNames }) => {
   const [Taskes, setTaskes] = useState(["Gym", "Jogging", "Coding"]);
 
-  useEffect(() => {
-    const Getnames = () => {
-      const data = acivitiesNames();
-      setTaskes(data);
-      console.log(Taskes);
-    };
-    Getnames();
-  }, [acivitiesNames]);
+  // useEffect(() => {
+  //   const Getnames = () => {
+  //     const data = acivitiesNames();
+  //     setTaskes(data);
+  //     console.log(Taskes);
+  //   };
+  //   Getnames();
+  // }, [acivitiesNames]);
 
   return (
     <div className="  w-[35em] m-8 ">
       <div className=" bg-transparent border rounded-xl">
-        <div className="bg-neutral-800  rounded-t-xl p-2 border ">
+        <div className="bg-zinc-900  rounded-t-xl p-4 border ">
           <h1 className=" text-white text-[25px] ">Habbits Progression</h1>
         </div>
         <div className="p-4">
-          {/* {Taskes &&
+          {Taskes &&
             Taskes?.map((e, i) => (
               <HabbitTable key={i} element={e} index={i + 4} />
-            ))} */}
+            ))}
         </div>
       </div>
     </div>
