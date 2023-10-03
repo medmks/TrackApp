@@ -8,28 +8,30 @@ Chart.register(...registerables);
 
 const BarChart = () => {
   const chartRef = useRef(null);
-  const [numbers, setnumbers] = useState([21,72,43,64,57,61,77,89,89,10]);
-  const [days, setdays] = useState(['1-7jun','7-14jun','12','13','14']);
+  const [numbers, setnumbers] = useState([
+    21, 72, 43, 64, 57, 61, 77, 89, 89, 10,
+  ]);
+  const [days, setdays] = useState(["1-7jun", "7-14jun", "12", "13", "14"]);
 
   const [step, setstep] = useState(0);
-//   useEffect(() => {
-//     const ApplyNumers =async () => {
-//       console.log("HIHIHIHIHI");
-//     // const data = await getdata?.getdata.subArrayCollection;
-//     // if(data !== null){
-//     // let min = data.map((e) => e.map((e) => e.numbers));
-//     // let days = data.map((e) => e.map((e) => e.date));
-//     // console.log(days);
-//     setdays(days);
-//     setnumbers(min);
-//     };
+  //   useEffect(() => {
+  //     const ApplyNumers =async () => {
+  //       console.log("HIHIHIHIHI");
+  //     // const data = await getdata?.getdata.subArrayCollection;
+  //     // if(data !== null){
+  //     // let min = data.map((e) => e.map((e) => e.numbers));
+  //     // let days = data.map((e) => e.map((e) => e.date));
+  //     // console.log(days);
+  //     setdays(days);
+  //     setnumbers(min);
+  //     };
 
-// if(getdata !== null ){
-//     return  ApplyNumers();
-// }
-//     // else return null
+  // if(getdata !== null ){
+  //     return  ApplyNumers();
+  // }
+  //     // else return null
 
-//   }, [getdata]);
+  //   }, [getdata]);
 
   const options = {
     scales: {
