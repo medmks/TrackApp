@@ -1,2 +1,3 @@
 import notion from "./notion.png";
-export { notion };
+import download from "./download.png";
+export { notion, download };
