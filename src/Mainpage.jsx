@@ -31,7 +31,7 @@ const Mainpage = () => {
 
 
         <div className=" h-[10em] w-full p-3 flex flex-row ml-5   gap-7 ">
-          <div className="h-full w-5/12 bg-white border border-violet-500 rounded-2xl">
+          <div className="h-fit w-5/12 bg-white border border-violet-500 rounded-2xl">
             {/* bg-violet-500  */}
             <div className="inline-flex p-4  ">
               <svg
@@ -59,7 +59,7 @@ const Mainpage = () => {
               </h2>
             </div>
           </div>
-          <div className="h-full w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
+          <div className="h-fit w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
             <div className="inline-flex p-4  ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

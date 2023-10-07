@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
-// import {f} from "./utility/motion"
 
 const HabbitTable = ({ element, index }) => {
   const randNum =( Math.random() * 10).toFixed(1)
-  const [progress, setProgress] = useState(0);
+
 
   // Simulate progress incrementing over time using useEffect
 
   return (
-    <div className=" flex flex-row items-center w-full justify-start        ">
-      <div className="w-full justify-start">
+    <div className=" flex flex-row items-center w-full justify-start m-2 ">
+      <div className="w-full flex justify-start items-center gap-4  flex-row">
+        <div className={`w-2 h-8 ${randNum >= 5 ? 'bg-fuchsia-300 ':'bg-indigo-400 '}   rounded-[1px] `}/>
         <p className="text-[19px] ">{element}</p>
       </div>
-      <div className="w-full flex justify-center">
-        <div className="w-[10em]  bg-slate-800 h-3  flex items-end  " >
+      <div className="static flex justify-end">
+        <div className="w-[10em] bg-slate-800 h-3  flex items-end  " >
           <div
          
             className={` bg-gradient-to-r from-violet-500 items-center justify-center  to-indigo-500 h-3 ]`}
@@ -24,8 +23,9 @@ const HabbitTable = ({ element, index }) => {
           />
         </div>
       </div>
-      &nbsp;{randNum * 10}%
-      <div className="w-full flex justify-end">
+      <p className="flex justify-center ml-5 w-full" >{randNum * 10}% </p>
+      {/* &nbsp;*/}
+      <div className="w-full flex justify-center">
         <p>{index}H{randNum}Min</p>
       </div>
     </div>
@@ -35,10 +35,10 @@ HabbitTable.propTypes = {
   element: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
-const Habbits = ({ acivitiesNames }) => {
+const Habbits = () => {
 
   
-  const [Taskes, setTaskes] = useState(["meeting", "Jogging", "Coding","reading", "studing", "Coding","Gym", "Jogging", "Coding"]);
+  const [Taskes] = useState(["meeting", "Jogging", "Coding","reading", "studing", "Coding","Gym", "Jogging", "Coding"]);
 
   // useEffect(() => {
   //   const Getnames = () => {
@@ -51,9 +51,9 @@ const Habbits = ({ acivitiesNames }) => {
 
   return (
     <div className="  w-12/12 m-8 ">
-      <div className=" bg-transparent border rounded-xl">
-        <div className="bg-zinc-900  rounded-t-xl p-4 border ">
-          <h1 className=" text-white text-[25px] ">Habbits Progression</h1>
+      <div className=" bg-transparent border border-violet-400   rounded-2xl">
+        <div className="   p-4 ">
+          <h1 className=" text-white text-[25px] ">Progression</h1>
         </div>
         <div className="p-4">
           {Taskes &&

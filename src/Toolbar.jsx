@@ -46,7 +46,7 @@ const Toolbar = () => {
           </svg>
           Tableau
         </button>
-        <button className={`  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4  focus:text-white bg-opacity-30 bg-indigo-800    `}>
+        <button className={`  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4      `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
