@@ -108,8 +108,8 @@ const BarChart = () => {
   //  shadow-2xl  shadow-indigo-500/50
 
   return (
-    <div className=" w-12/12  m-8   ">
-      <div className="flex justify-center flex-col flex-wrap   rounded-3xl p-5 items-center    ">
+    <div className="   w-[30em]  ">
+      <div className="flex justify-center flex-col flex-wrap   rounded-3xl items-center    ">
         {/* <h1 className="p-3 text-[23px]  text-center ">
           Time Spent on phone each week
         </h1> */}

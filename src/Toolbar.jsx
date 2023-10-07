@@ -1,13 +1,18 @@
 // import { download } from "./assets";
+import { useState } from "react";
 
 const Toolbar = () => {
+
+
+
+
   return (
     <div className="w-80 h-screen ">
       <div className="flex flex-col justify-start gap-9 fixed">
         <div className="w-54 h-54 h">
           {/* <img src={download} alt=""  className=" object-cover w-54 h-54"/> */}
         </div>
-        <button className=" w-56 bg-indigo-800     text-indigo-300  bg-opacity-60 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4      ">
+        <button  className={` focus:text-white bg-opacity-30 bg-indigo-800  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4     `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -24,7 +29,7 @@ const Toolbar = () => {
           </svg>
           Home
         </button>
-        <button className=" w-56   text-indigo-300  bg-opacity-50 rounded-full p-5  h-[4em]    flex flex-row justify-start  items-center gap-4        ">
+        <button  className={` w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4     `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -41,7 +46,7 @@ const Toolbar = () => {
           </svg>
           Tableau
         </button>
-        <button className=" w-56   text-indigo-300  bg-opacity-50 rounded-full p-5  h-[4em]       flex flex-row justify-start  items-center gap-4     ">
+        <button className={`  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4  focus:text-white bg-opacity-30 bg-indigo-800    `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -58,7 +63,7 @@ const Toolbar = () => {
           </svg>
           Tasks
         </button>
-        <button className=" w-56   text-indigo-300  bg-opacity-50 rounded-full p-5  h-[4em]      flex flex-row justify-start  items-center gap-4      ">
+        <button  className={`  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4     `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

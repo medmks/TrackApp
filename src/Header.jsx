@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div className=" w-full h-16  border-l  border-stone-500  ">
-      <div className=" flex flex-row  items-center  justify-between p-2  ">
+      <div className=" flex flex-row  items-center  justify-between p-2 mr-16   ">
         <h1 className="ml-2 text-[26px]  font-medium ">Home</h1>
         <div className=" flex flex-row gap-3 ">
           <button className="bg-indigo-700  p-3 w-48      rounded-3xl text-center font-normal text hover:bg-indigo-600  ">

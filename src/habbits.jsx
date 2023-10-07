@@ -1,25 +1,32 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+// import {f} from "./utility/motion"
 
 const HabbitTable = ({ element, index }) => {
+  const randNum =( Math.random() * 10).toFixed(1)
+  const [progress, setProgress] = useState(0);
+
+  // Simulate progress incrementing over time using useEffect
+
   return (
     <div className=" flex flex-row items-center w-full justify-start        ">
       <div className="w-full justify-start">
         <p className="text-[19px] ">{element}</p>
-      </div> 
+      </div>
       <div className="w-full flex justify-center">
-              <div className="w-[10em]  bg-slate-800 h-3  flex items-end  ">
-        <div
-          className={` bg-gradient-to-r from-violet-500 items-center justify-center to-indigo-500 h-3 ]`}
-          style={{ width: `${index}em` }}
-        />
-      </div> 
-      </div>&nbsp;{index}/10
+        <div className="w-[10em]  bg-slate-800 h-3  flex items-end  " >
+          <div
+         
+            className={` bg-gradient-to-r from-violet-500 items-center justify-center  to-indigo-500 h-3 ]`}
 
+            style={{ width: `${randNum}em` }}
+          />
+        </div>
+      </div>
+      &nbsp;{randNum * 10}%
       <div className="w-full flex justify-end">
-        <p>
-        13H43Min
-        </p>
+        <p>{index}H{randNum}Min</p>
       </div>
     </div>
   );
@@ -29,7 +36,9 @@ HabbitTable.propTypes = {
   index: PropTypes.number.isRequired,
 };
 const Habbits = ({ acivitiesNames }) => {
-  const [Taskes, setTaskes] = useState(["Gym", "Jogging", "Coding"]);
+
+  
+  const [Taskes, setTaskes] = useState(["meeting", "Jogging", "Coding","reading", "studing", "Coding","Gym", "Jogging", "Coding"]);
 
   // useEffect(() => {
   //   const Getnames = () => {
@@ -58,6 +67,6 @@ const Habbits = ({ acivitiesNames }) => {
 };
 
 export default Habbits;
-Habbits.propTypes = {
-  acivitiesNames: PropTypes.func.isRequired,
-};
+// Habbits.propTypes = {
+//   acivitiesNames: PropTypes.func.isRequired,
+// };
