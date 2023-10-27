@@ -1,4 +1,3 @@
-import BarChart from "./ChartBar";
 import Habbits from "./habbits";
 const Mainpage = () => {
   return (
@@ -26,15 +25,12 @@ const Mainpage = () => {
           <span>You are almost there</span>
         </div>
 
+        <div className=" h-fit w-full p-3 flex flex-row ml-5   gap-7 ">
+          <div className="h-full flex justify-center items-center w-5/12 bg-white border border-violet-500 rounded-2xl">
 
-
-
-
-        <div className=" h-[10em] w-full p-3 flex flex-row ml-5   gap-7 ">
-          <div className="h-fit w-5/12 bg-white border border-violet-500 rounded-2xl">
-            {/* bg-violet-500  */}
-            <div className="inline-flex p-4  ">
-              <svg
+          {/* bg-violet-500  */}
+          <div className="inline-flex p-4  ">
+          <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -53,14 +49,13 @@ const Mainpage = () => {
                   d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"
                 />
               </svg>
-
               <h2 className="text-violet-500 font-medium  text-[28px]">
                 Start Tracking
               </h2>
-            </div>
           </div>
-          <div className="h-fit w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
-            <div className="inline-flex p-4  ">
+          </div>
+          <div className="h-full flex justify-center items-center w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
+          <div className="inline-flex p-4  ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -83,7 +78,7 @@ const Mainpage = () => {
           </div>
         </div>
       </div>
-      <Habbits acivitiesNames ={7}/>
+      <Habbits acivitiesNames={7} />
     </div>
   );
 };

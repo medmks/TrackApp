@@ -6,32 +6,34 @@ import { colors } from "./constances/";
 
 Chart.register(...registerables);
 
-const BarChart = () => {
+const BarChart = (getdata) => {
   const chartRef = useRef(null);
-  const [numbers, setnumbers] = useState([
-    21, 72, 43, 64, 57, 61, 77, 89, 89, 10,
-  ]);
-  const [days, setdays] = useState(["1-7jun", "7-14jun", "12", "13", "14"]);
+  const [numbers, setnumbers] = useState(null);
+  const [days, setdays] = useState(null);
 
   const [step, setstep] = useState(0);
-  //   useEffect(() => {
-  //     const ApplyNumers =async () => {
-  //       console.log("HIHIHIHIHI");
-  //     // const data = await getdata?.getdata.subArrayCollection;
-  //     // if(data !== null){
-  //     // let min = data.map((e) => e.map((e) => e.numbers));
-  //     // let days = data.map((e) => e.map((e) => e.date));
-  //     // console.log(days);
-  //     setdays(days);
-  //     setnumbers(min);
-  //     };
+  useEffect(() => {
+    const ApplyNumers =  () => {
+      console.log("This is from barchar ");
+      const data =  getdata?.getdata.subArrayCollection;
 
-  // if(getdata !== null ){
-  //     return  ApplyNumers();
-  // }
-  //     // else return null
+      if (data !== null) {
+        let min = data.map((e) => e.map((e) => e.numbers));
+        let days = data.map((e) => e.map((e) => e.date));
+        console.log(days);
 
-  //   }, [getdata]);
+        setdays(days);
+        setnumbers(min);
+        setstep(min.length-1)
+        console.log(numbers);
+
+      }
+
+   
+    };
+    ApplyNumers()
+
+  }, [getdata]);
 
   const options = {
     scales: {
@@ -68,7 +70,7 @@ const BarChart = () => {
       // },
     },
   };
-
+console.log(step);
   const onUpdate = (symb) => {
     if (symb === "+" && days?.length - 1 > step) {
       setstep((prevstep) => prevstep + 1);
@@ -79,14 +81,14 @@ const BarChart = () => {
   };
   const data = () => {
     return {
-      labels: ["Mon", "Tur", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      labels: days? days[step]:null,
       datasets: [
         {
           // data: [33, 53, 85, 41, 44, 65],
           // fill: "start",
           label: "Minutes",
           type: "line",
-          data: numbers ? numbers : null,
+          data: numbers ? numbers[step] : null,
           fill: true,
           pointBackgroundColor: colors.purple.default,
           borderColor: colors.purple.default,
@@ -108,11 +110,11 @@ const BarChart = () => {
   //  shadow-2xl  shadow-indigo-500/50
 
   return (
-    <div className="   w-[30em]  ">
+    <div className=" ">
       <div className="flex justify-center flex-col flex-wrap   rounded-3xl items-center    ">
-        {/* <h1 className="p-3 text-[23px]  text-center ">
+        <h1 className="p-3 text-[23px]  text-center ">
           Time Spent on phone each week
-        </h1> */}
+        </h1>
         <Bar ref={chartRef} className=" " data={data()} options={options} />
         <div className=" flex flex-row justify-center     w-full rounded-2xl ">
           <button
@@ -135,7 +137,7 @@ const BarChart = () => {
             </svg>
           </button>
           <h2 className=" flex items-center text-secondary text-[20px] p-5 ">
-            {days && days[step]}
+            {days && days[step][0]  } / {days && days[step][6] ? days[step][6] :'Today'  }
           </h2>
           <button
             className={`${
