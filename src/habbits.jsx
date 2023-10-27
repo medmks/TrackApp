@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const HabbitTable = ({ element, index }) => {
-  const randNum = (Math.random() * 10).toFixed(1);
+  const randNum = (Math.random() * 10).toFixed(0);
   return (
     <div className=" flex flex-row items-center w-full justify-start m-2 ">
       <div className="w-full flex justify-start items-center gap-4  flex-row">
@@ -28,7 +28,7 @@ const HabbitTable = ({ element, index }) => {
       {/* &nbsp;*/}
       <div className="w-full flex justify-center">
         <p>
-          {index}H{randNum}Min
+          {index} H &nbsp;{randNum} Min
         </p>
       </div>
     </div>
