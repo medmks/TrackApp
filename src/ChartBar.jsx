@@ -13,9 +13,9 @@ const BarChart = (getdata) => {
 
   const [step, setstep] = useState(0);
   useEffect(() => {
-    const ApplyNumers =  () => {
+    const ApplyNumers = () => {
       console.log("This is from barchar ");
-      const data =  getdata?.getdata.subArrayCollection;
+      const data = getdata?.getdata.subArrayCollection;
 
       if (data !== null) {
         let min = data.map((e) => e.map((e) => e.numbers));
@@ -24,15 +24,11 @@ const BarChart = (getdata) => {
 
         setdays(days);
         setnumbers(min);
-        setstep(min.length-1)
+        setstep(min.length - 1);
         console.log(numbers);
-
       }
-
-   
     };
-    ApplyNumers()
-
+    ApplyNumers();
   }, [getdata]);
 
   const options = {
@@ -70,7 +66,7 @@ const BarChart = (getdata) => {
       // },
     },
   };
-console.log(step);
+  console.log(step);
   const onUpdate = (symb) => {
     if (symb === "+" && days?.length - 1 > step) {
       setstep((prevstep) => prevstep + 1);
@@ -81,7 +77,7 @@ console.log(step);
   };
   const data = () => {
     return {
-      labels: days? days[step]:null,
+      labels: days ? days[step] : null,
       datasets: [
         {
           // data: [33, 53, 85, 41, 44, 65],
@@ -137,7 +133,8 @@ console.log(step);
             </svg>
           </button>
           <h2 className=" flex items-center text-secondary text-[20px] p-5 ">
-            {days && days[step][0]  } / {days && days[step][6] ? days[step][6] :'Today'  }
+            {days && days[step][0]} /{" "}
+            {days && days[step][6] ? days[step][6] : "Today"}
           </h2>
           <button
             className={`${

@@ -16,11 +16,10 @@ const HabbitTable = ({ element, index }) => {
       <div className="static flex justify-end ">
         <div className="w-fit flex items-center p-1  h-4 border border-opacity-70  justify-start border-stone-600 rounded-xl ">
           <div className="w-[10em] h-1 bg-gray-400 ">
-          <div
-            className={` bg-indigo-700    items-center justify-center  to-indigo-500 h-1 ]`}
-            style={{ width: `${randNum}em` }}
-          />
-
+            <div
+              className={` bg-indigo-700    items-center justify-center  to-indigo-500 h-1 ]`}
+              style={{ width: `${randNum}em` }}
+            />
           </div>
         </div>
       </div>

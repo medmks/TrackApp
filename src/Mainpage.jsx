@@ -1,5 +1,5 @@
 import Habbits from "./habbits";
-// import CercleProgress from "./Cercle"
+import CercleProgress from "./Cercle";
 // import "./styles.css"
 const Mainpage = () => {
   return (
@@ -27,13 +27,8 @@ const Mainpage = () => {
           <span>You are almost there</span>
         </div>
 
-
-
-
-
-
         <div className=" w-full flex flex-row ml-5   gap-7 ">
-        {/* <CercleProgress/> */}
+          <CercleProgress/>
         </div>
       </div>
       <Habbits acivitiesNames={7} />
@@ -42,10 +37,8 @@ const Mainpage = () => {
 };
 export default Mainpage;
 
-
-
-
-          {/* <div className="h-full flex justify-center items-center w-5/12 bg-white border border-violet-500 rounded-2xl">
+{
+  /* <div className="h-full flex justify-center items-center w-5/12 bg-white border border-violet-500 rounded-2xl">
           <div className="inline-flex p-4  ">
           <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,10 +63,11 @@ export default Mainpage;
                 Start Tracking
               </h2>
           </div>
-          </div> */}
+          </div> */
+}
 
-
-{/* <div className="h-full flex justify-center items-center w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
+{
+  /* <div className="h-full flex justify-center items-center w-5/12 bg-indigo-600 border   border-neutral-50   rounded-2xl">
 <div className="inline-flex p-4  ">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +88,8 @@ export default Mainpage;
       Make planner
     </h2>
   </div>
-</div> */}
-
-
+</div> */
+}
 
 // <div className="container">
 // 	<div className="blob-c">
@@ -110,9 +103,3 @@ export default Mainpage;
 // </div>
 // <h1>Undulating Background Blobs</h1>
 // </div>
-
-
-
-
-
-
