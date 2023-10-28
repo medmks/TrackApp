@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import { notion } from "./assets";
+import { csv } from "./assets";
+
 import BarChart from "./ChartBar";
 // import Habbits from "./habbits";
 import Activity from "./assets/Acivities";
@@ -38,13 +39,13 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-2/4  h-screen border  rounded-xl border-stone-600 p-4">
+    <div className="w-2/4  h-screen border flex justify-center items-center rounded-xl border-stone-600 p-4">
       <div className=" border rounded-xl  w-full h-fit border-stone-600 p-2 ">
         <button
           className=" bg-white rounded-md w-fit flex flex-row items-center p-2 hover:bg-stone-200   "
           onClick={() => Handelclick()}
         >
-          <img src={notion} alt="notion" className="w-10 h-10 " />
+          <img src={csv} alt="notion" className="w-10 h-10 " />
           {/* {" Import table from Notion"} */}
         </button>
         <input

@@ -22,7 +22,7 @@ export default {
   //           }
   // }
 };
-export const someStyle = () => (
+export const SomeStyle = () => (
   <PerformanceCard
     percent={60}
     color="text-blue-600"

@@ -1,6 +1,5 @@
 import Habbits from "./habbits";
 import CercleProgress from "./Cercle";
-// import "./styles.css"
 const Mainpage = () => {
   return (
     <div className=" w-3/4 h-fit border border-stone-600  rounded-xl mr-4">
@@ -27,8 +26,8 @@ const Mainpage = () => {
           <span>You are almost there</span>
         </div>
 
-        <div className=" w-full flex flex-row ml-5   gap-7 ">
-          <CercleProgress/>
+        <div className=" w-full ">
+          <CercleProgress />
         </div>
       </div>
       <Habbits acivitiesNames={7} />

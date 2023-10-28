@@ -29,7 +29,7 @@ const BarChart = (getdata) => {
       }
     };
     ApplyNumers();
-  }, [getdata]);
+  }, []);
 
   const options = {
     scales: {
@@ -86,17 +86,17 @@ const BarChart = (getdata) => {
           type: "line",
           data: numbers ? numbers[step] : null,
           fill: true,
-          pointBackgroundColor: colors.purple.default,
-          borderColor: colors.purple.default,
+          pointBackgroundColor: colors.Red.default,
+          borderColor: colors.Red.default,
           lineTension: 0.2,
           borderWidth: 2,
           pointRadius: 3,
           backgroundColor: (context) => {
             const ctx = context.chart.ctx;
             var gradient = ctx.createLinearGradient(0, 25, 0, 360);
-            gradient.addColorStop(0, colors.purple.half);
-            gradient.addColorStop(0.35, colors.purple.quarter);
-            gradient.addColorStop(1, colors.purple.zero);
+            gradient.addColorStop(0, colors.Red.half);
+            gradient.addColorStop(0.35, colors.Red.quarter);
+            gradient.addColorStop(1, colors.Red.zero);
             return gradient;
           },
         },
@@ -112,7 +112,7 @@ const BarChart = (getdata) => {
           Time Spent on phone each week
         </h1>
         <Bar ref={chartRef} className=" " data={data()} options={options} />
-        <div className=" flex flex-row justify-center     w-full rounded-2xl ">
+        <div className=" flex flex-row justify-center  w-full rounded-2xl ">
           <button
             className={` rounded-l-lg `}
             onClick={() => {

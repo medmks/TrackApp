@@ -79,24 +79,24 @@ const CercleProgress = () => {
   return (
     <div className=" py-10 px-10 ">
       <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
-      <PerformanceCard
-                percent={53}
-                color="text-red-500"
-                title="something"
-                extra="+25%"
-                BackColor="#d7d745"
-                TextColor="#de3535"
-                CirleColor="#1c1b22"
-              />
-              <PerformanceCard
-                percent={80}
-                color="text-blue-700"
-                title="something"
-                extra="+25%"
-                BackColor="#d7d745"
-                TextColor="#0b5ffa"
-                CirleColor="#1c1b22"
-              />
+        <PerformanceCard
+          percent={53}
+          color="text-red-500"
+          title="Project "
+          extra="+25%"
+          BackColor="#d7d745"
+          TextColor="#de3535"
+          CirleColor="#1c1b22"
+        />
+        <PerformanceCard
+          percent={80}
+          color="text-blue-700"
+          title="Focus Time"
+          extra="+30 min"
+          BackColor="#d7d745"
+          TextColor="#0b5ffa"
+          CirleColor="#1c1b22"
+        />
       </div>
     </div>
   );
