@@ -9,8 +9,8 @@ const App = () => {
 
 
   return (
-    <div className=" ">
-      <div className="  flex flex-row  bg-black ">
+    <div className="">
+      <div className="  flex flex-row bg-black">
         <Toolbar />
         <div className="flex flex-col w-full">
           <Header />

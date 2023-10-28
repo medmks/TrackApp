@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className=" w-full h-fit  border-l  border-stone-500  ">
+    <div className=" w-full h-fit  border  border-stone-600  mb-4 rounded-xl ">
       <div className=" flex flex-row  items-center  justify-between p-2 mr-16   ">
         <h1 className="ml-2 text-[26px]  font-medium ">Home</h1>
         <div className=" flex flex-row gap-3 ">

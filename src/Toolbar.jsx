@@ -3,13 +3,11 @@
 
 const Toolbar = () => {
   return (
-    <div className="w-72        h-screen   ">
-      <section className="fixed">
+    <div className="w-72 h-screen ">
+      {/* <section className="">
 
         <div className="flex flex-col justify-start gap-9 ">
-          <div className="w-54 h-54 h">
-            {/* <img src={download} alt=""  className=" object-cover w-54 h-54"/> */}
-          </div>
+
           <button
             className={` focus:text-white bg-opacity-30 bg-indigo-800  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4     `}
           >
@@ -87,7 +85,7 @@ const Toolbar = () => {
             Help
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

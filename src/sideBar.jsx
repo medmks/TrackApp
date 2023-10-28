@@ -38,8 +38,8 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-2/4  h-screen border-b border-t border-stone-500 ">
-      <div className=" border-b  w-full h-fit border-stone-500 p-2 ">
+    <div className="w-2/4  h-screen border  rounded-xl border-stone-600 p-4">
+      <div className=" border rounded-xl  w-full h-fit border-stone-600 p-2 ">
       <button
               className=" bg-white rounded-md w-fit flex flex-row items-center p-2 hover:bg-stone-200   "
               onClick={() => Handelclick()}
