@@ -1,11 +1,12 @@
 import propTypes from "prop-types";
 const Chartcontroller = ({ date }) => {
   return (
-    <div className="flex justify-center "> 
-          <div className=" flex flex-row justify-center w-fit bg-slate-950 rounded-2xl ">
+    <div className="flex justify-center ">
+      <div className=" flex flex-row justify-center w-fit bg-slate-950 rounded-2xl ">
         <button
           className={` rounded-l-lg   `}
-          onClick={() => console.log(date)
+          onClick={
+            () => console.log(date)
             //         onUpdate("-");
           }
         >

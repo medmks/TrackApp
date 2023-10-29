@@ -4,9 +4,7 @@ const Toolbar = () => {
   return (
     <div className="w-72 h-screen ">
       <section className="">
-
         <div className="flex flex-col justify-start gap-9 ">
-
           <button
             className={` focus:text-white bg-opacity-50 bg-blue-700  w-56 rounded-full p-5  h-[4em]  flex flex-row justify-start  items-center gap-4     `}
           >

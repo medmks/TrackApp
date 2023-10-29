@@ -17,7 +17,7 @@ const App = () => {
           </div>
         </div>
       </div> */}
-      <Board/>
+      <Board />
     </div>
   );
 };
