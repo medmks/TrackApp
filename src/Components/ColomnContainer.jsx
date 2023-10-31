@@ -2,7 +2,9 @@ import propTypes from "prop-types";
 import {useSortable} from '@dnd-kit/sortable';
 import { Delete } from "../Icons/Delete";
 import {CSS} from "@dnd-kit/utilities"
+import { useState } from "react";
 const ColomnContainer = ({ column, DeleteID }) => {
+          const [editMode,seteditMode]=useState(false)
           const {setNodeRef,attributes,listeners,transform,transition,isDragging}=useSortable({
                     id:column.Id,
                     data:{
@@ -22,12 +24,13 @@ const ColomnContainer = ({ column, DeleteID }) => {
           }
           return (
     <div ref={setNodeRef} style={Style} className="bg-black w-[360px] h-[500px] max-h-[500px] rounded-md flex flex-col">
-      <div {...attributes} {...listeners} className="bg-mainsBckground  text-lg font-bold h-[60px] cursor-grab rounded-md rounded-b-none p-3 border-black border-4 flex justify-between items-center">
+      <div {...attributes} {...listeners} className="bg-mainsBckground  text-lg font-bold h-[60px] cursor-grab rounded-md rounded-b-none p-3 border-black border-4 flex justify-between items-center" onClick={()=>{seteditMode(true)} }>
         <div className="flex gap-2">
           <div className="flex justify-center items-center bg-ColumnBckground px-2 py-1 text-sm  ">
             {column.Id}
           </div>
-          {column.Title}
+           { !editMode && column.Title}
+           {editMode && <input type="text" autoFocus onBlur={()=>{seteditMode(false)}}/>  }
         </div>
         <button
           onClick={() => {
