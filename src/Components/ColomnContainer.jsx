@@ -30,7 +30,10 @@ const ColomnContainer = ({ column, DeleteID }) => {
             {column.Id}
           </div>
            { !editMode && column.Title}
-           {editMode && <input type="text" autoFocus onBlur={()=>{seteditMode(false)}}/>  }
+           {editMode && <input type="text" autoFocus onBlur={()=>{seteditMode(false)}} onKeyDown={(e)=>{
+            if(e.key==="Entre") return;
+            seteditMode(false)
+           }}/>  }
         </div>
         <button
           onClick={() => {
