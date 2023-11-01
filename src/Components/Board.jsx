@@ -11,7 +11,13 @@ import {
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
 export const Board = () => {
-  const [columns, setColumns] = useState([]);
+  const [columns, setColumns] = useState([
+    { Id: 2167, Title: "Column 1" },
+    { Id: 8892, Title: "Column 2" },
+    { Id: 6411, Title: "Column 3" },
+    { Id: 1517, Title: "Column 4" },
+  ]);
+  console.log(columns);
   const [Activecolumn, setActiveColumns] = useState();
 
   const columnsId = useMemo(() => columns.map((col) => col.Id), [columns]);
@@ -39,7 +45,6 @@ export const Board = () => {
                   column={col}
                   DeleteID={DeleteID}
                   UpadateTitle={UpadateTitle}
-
                 />
               ))}
             </SortableContext>
@@ -58,7 +63,7 @@ export const Board = () => {
             {Activecolumn && (
               <ColomnContainer
                 column={Activecolumn}
-                DeleteID={DeleteID} 
+                DeleteID={DeleteID}
                 UpadateTitle={UpadateTitle}
               />
             )}
@@ -79,13 +84,12 @@ export const Board = () => {
     const FiltredArr = columns.filter((col) => col.Id !== Id);
     setColumns(FiltredArr);
   }
-  function UpadateTitle(id,Title) {
-    const EditedCol = columns.map(col => {
-    if (col.Id !== id) return col;
+  function UpadateTitle(id, Title) {
+    const EditedCol = columns.map((col) => {
+      if (col.Id !== id) return col;
       return { ...col, Title };
     });
     setColumns(EditedCol);
-
   }
   function OnDragStart(ev) {
     console.log(ev);
@@ -111,8 +115,6 @@ export const Board = () => {
       return arrayMove(columns, ActivecolumnIndex, OvercolumnIndex);
     });
   }
-  
-
 };
 function generateId() {
   return Math.floor(Math.random() * 10001);

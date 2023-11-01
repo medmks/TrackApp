@@ -5,6 +5,8 @@ import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
 const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
   const [editMode, seteditMode] = useState(false);
+  console.log(editMode);
+  console.log("renderd");
   const {
     setNodeRef,
     attributes,
@@ -33,6 +35,11 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
       ></div>
     );
   }
+
+  const hh = (e) => {
+    UpadateTitle(column.Id, e.target.value);
+    seteditMode(false);
+  };
   return (
     <div
       ref={setNodeRef}
@@ -53,16 +60,19 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
           </div>
           {!editMode && column.Title}
           {editMode && (
-            <input value={column.Title}
-              onChange={(e) => UpadateTitle(column.Id,e.target.value)}
+            <input
+              defaultValue={column.Title}
+              // on={hh}
               autoFocus
-              className="bg-ColumnBckground w-full focus:border-rose-500 border rounded-lg outline-none px-2 "
-              onBlur={() =>seteditMode(false)
-              }
-               onKeyDown={(e)=>{
-                if(e.key =="Entre") return;
-                seteditMode(false)
-               }}
+              className="bg-ColumnBckground w-full focus:border-rose-500 border rounded-lg outline-none px-2"
+              onBlur={hh}
+              onKeyDown={(e) => {
+                if (e.key !== "Enter") return;
+                UpadateTitle(column.Id, e.target.value);
+
+                // hh
+                seteditMode(false);
+              }}
             />
           )}
         </div>
@@ -83,7 +93,7 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
 ColomnContainer.propTypes = {
   column: propTypes.object.isRequired,
   DeleteID: propTypes.func.isRequired,
-  UpadateTitle: propTypes.func.isRequired
+  UpadateTitle: propTypes.func,
 };
 
 export default ColomnContainer;
