@@ -44,11 +44,13 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
   };
   return (
     <div
+    
       ref={setNodeRef}
       style={Style}
       className="bg-black w-[360px] h-[500px] max-h-[500px] rounded-md flex flex-col"
     >
       <div
+
         {...attributes}
         {...listeners}
         className="bg-mainsBckground m-1  text-lg font-bold h-[60px] cursor-grab rounded-md  p-3 border-2 border-ColumnBckground flex justify-between items-center"
@@ -87,7 +89,7 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
           <Delete />
         </button>
       </div>
-      <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
+      <div  className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
         {
           tasks.map((task,i)=>{
             return(

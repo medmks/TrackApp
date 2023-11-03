@@ -5,15 +5,19 @@
 @tailwind utilities;
 
 @layer components {
-  /* Style the horizontal scrollbar */
   ::-webkit-scrollbar:horizontal {
-    height: 8px;
+    height: 3px;
   }
 
-  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar{
+      color: #e53e3e;
+      width: 3px;
+  }
   ::-webkit-scrollbar-thumb {
-    background-color: #e53e3e; /* Replace with your desired color */
+    @apply bg-orange-800;
     border-radius: 8px; /* Adjust the radius as needed */
+    height: 5px;
+
   }
 }
 * {
