@@ -5,7 +5,10 @@ import Mainpage from "./Mainpage";
 import { Board } from "./Components/Board";
 const App = () => {
   return (
-    <div className=" " style={{ '&::WebkitScrollbar': { width: 0, height: 0 } }}>
+    <div
+      className=" "
+      style={{ "&::WebkitScrollbar": { width: 0, height: 0 } }}
+    >
       <div className="  flex flex-row ">
         <Toolbar />
         <div className="flex flex-col w-full">

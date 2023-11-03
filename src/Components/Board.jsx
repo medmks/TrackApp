@@ -11,7 +11,7 @@ import {
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
 export const Board = () => {
-  const [Tasks,setTasks]=useState([])
+  const [Tasks, setTasks] = useState([]);
   const [columns, setColumns] = useState([
     { Id: 2167, Title: "Column 1" },
     { Id: 8892, Title: "Column 2" },
@@ -47,10 +47,8 @@ export const Board = () => {
                   DeleteID={DeleteID}
                   UpadateTitle={UpadateTitle}
                   CreatenewTask={CreatenewTask}
-                  tasks={Tasks.filter(Task=>Task.columnsId ==col.Id)}
+                  tasks={Tasks.filter((Task) => Task.columnsId == col.Id)}
                   DeleteTask={DeleteTask}
-
-
                 />
               ))}
             </SortableContext>
@@ -74,8 +72,6 @@ export const Board = () => {
                 tasks={Tasks}
                 CreatenewTask={CreatenewTask}
                 DeleteTask={DeleteTask}
-
-
               />
             )}
           </DragOverlay>,
@@ -85,16 +81,16 @@ export const Board = () => {
     </div>
   );
   function CreatenewTask(columnsId) {
-const newTask={
-  id:generateId(),
-  columnsId,
-  content:`task ${Tasks.length +1}`
-}
-setTasks([...Tasks,newTask])
+    const newTask = {
+      id: generateId(),
+      columnsId,
+      content: `task ${Tasks.length + 1}`,
+    };
+    setTasks([...Tasks, newTask]);
   }
-  function DeleteTask(id){
-  const RestOfTasks=  Tasks.filter(task=>task.id!== id)
-  setTasks(RestOfTasks)
+  function DeleteTask(id) {
+    const RestOfTasks = Tasks.filter((task) => task.id !== id);
+    setTasks(RestOfTasks);
   }
 
   function CreateNewColumns() {

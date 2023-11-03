@@ -5,7 +5,14 @@ import { useState } from "react";
 import { PlusIcon } from "../Icons/PlusIcon";
 import Task from "./Task";
 import propTypes from "prop-types";
-const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks,DeleteTask }) => {
+const ColomnContainer = ({
+  column,
+  DeleteID,
+  UpadateTitle,
+  CreatenewTask,
+  tasks,
+  DeleteTask,
+}) => {
   const [editMode, seteditMode] = useState(false);
   console.log(editMode);
   console.log("renderd");
@@ -44,13 +51,11 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks,De
   };
   return (
     <div
-    
       ref={setNodeRef}
       style={Style}
       className="bg-black w-[360px] h-[500px] max-h-[500px] rounded-md flex flex-col"
     >
       <div
-
         {...attributes}
         {...listeners}
         className="bg-mainsBckground m-1  text-lg font-bold h-[60px] cursor-grab rounded-md  p-3 border-2 border-ColumnBckground flex justify-between items-center"
@@ -89,28 +94,30 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks,De
           <Delete />
         </button>
       </div>
-      <div  className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
-        {
-          tasks.map((task,i)=>{
-            return(
-              <Task key={i}  task={task} DeleteTask={DeleteTask} />
-            )
-          })
-        }
+      <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
+        {tasks.map((task, i) => {
+          return <Task key={i} task={task} DeleteTask={DeleteTask} />;
+        })}
       </div>
-      <button onClick={()=>{CreatenewTask(column.Id)}}  className="flex gap-3 border-2 border-ColumnBckground bg-mainsBckground rounded-md p-4  m-1 hover:text-rose-500 hover:border-rose-400 " ><PlusIcon/>Add Task </button>
+      <button
+        onClick={() => {
+          CreatenewTask(column.Id);
+        }}
+        className="flex gap-3 border-2 border-ColumnBckground bg-mainsBckground rounded-md p-4  m-1 hover:text-rose-500 hover:border-rose-400 "
+      >
+        <PlusIcon />
+        Add Task{" "}
+      </button>
     </div>
   );
-
 };
 ColomnContainer.propTypes = {
   column: propTypes.object.isRequired,
   DeleteID: propTypes.func.isRequired,
   UpadateTitle: propTypes.func.isRequired,
   CreatenewTask: propTypes.func.isRequired,
-  tasks:propTypes.array.isRequired,
+  tasks: propTypes.array.isRequired,
   DeleteTask: propTypes.func.isRequired,
-
 };
 
 export default ColomnContainer;
