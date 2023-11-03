@@ -1,9 +1,11 @@
-import propTypes from "prop-types";
 import { useSortable } from "@dnd-kit/sortable";
 import { Delete } from "../Icons/Delete";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
-const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
+import { PlusIcon } from "../Icons/PlusIcon";
+import Task from "./Task";
+import propTypes from "prop-types";
+const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks }) => {
   const [editMode, seteditMode] = useState(false);
   console.log(editMode);
   console.log("renderd");
@@ -49,7 +51,7 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
       <div
         {...attributes}
         {...listeners}
-        className="bg-mainsBckground  text-lg font-bold h-[60px] cursor-grab rounded-md rounded-b-none p-3 border-black border-4 flex justify-between items-center"
+        className="bg-mainsBckground m-1  text-lg font-bold h-[60px] cursor-grab rounded-md  p-3 border-2 border-ColumnBckground flex justify-between items-center"
         onClick={() => {
           seteditMode(true);
         }}
@@ -85,8 +87,16 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle }) => {
           <Delete />
         </button>
       </div>
-      <div className="flex flex-grow   ">content</div>
-      <div>footer</div>
+      <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
+        {
+          tasks.map((task,i)=>{
+            return(
+              <Task key={i}  task={task}/>
+            )
+          })
+        }
+      </div>
+      <button onClick={()=>{CreatenewTask(column.Id)}}  className="flex gap-3 border-2 border-ColumnBckground bg-mainsBckground rounded-md p-4  m-1 hover:text-rose-500 hover:border-rose-400 " ><PlusIcon/>Add Task </button>
     </div>
   );
 };
@@ -94,6 +104,9 @@ ColomnContainer.propTypes = {
   column: propTypes.object.isRequired,
   DeleteID: propTypes.func.isRequired,
   UpadateTitle: propTypes.func,
+  CreatenewTask: propTypes.func,
+  tasks:propTypes.array.isRequired
+
 };
 
 export default ColomnContainer;

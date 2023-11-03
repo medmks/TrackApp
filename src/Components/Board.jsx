@@ -11,13 +11,14 @@ import {
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
 export const Board = () => {
+  const [Tasks,setTasks]=useState([])
   const [columns, setColumns] = useState([
     { Id: 2167, Title: "Column 1" },
     { Id: 8892, Title: "Column 2" },
     { Id: 6411, Title: "Column 3" },
     { Id: 1517, Title: "Column 4" },
   ]);
-  console.log(columns);
+  console.log(Tasks);
   const [Activecolumn, setActiveColumns] = useState();
 
   const columnsId = useMemo(() => columns.map((col) => col.Id), [columns]);
@@ -45,6 +46,10 @@ export const Board = () => {
                   column={col}
                   DeleteID={DeleteID}
                   UpadateTitle={UpadateTitle}
+                  CreatenewTask={CreatenewTask}
+                  tasks={Tasks.filter(Task=>Task.columnsId ==col.Id)}
+
+
                 />
               ))}
             </SortableContext>
@@ -65,6 +70,9 @@ export const Board = () => {
                 column={Activecolumn}
                 DeleteID={DeleteID}
                 UpadateTitle={UpadateTitle}
+                tasks={Tasks}
+                CreatenewTask={CreatenewTask}
+
               />
             )}
           </DragOverlay>,
@@ -73,6 +81,15 @@ export const Board = () => {
       </DndContext>
     </div>
   );
+  function CreatenewTask(columnsId) {
+const newTask={
+  id:generateId(),
+  columnsId,
+  content:`task ${Tasks.length +1}`
+}
+setTasks([...Tasks,newTask])
+  }
+
   function CreateNewColumns() {
     const NewColumn = {
       Id: generateId(),
