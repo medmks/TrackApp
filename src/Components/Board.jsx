@@ -48,6 +48,7 @@ export const Board = () => {
                   UpadateTitle={UpadateTitle}
                   CreatenewTask={CreatenewTask}
                   tasks={Tasks.filter(Task=>Task.columnsId ==col.Id)}
+                  DeleteTask={DeleteTask}
 
 
                 />
@@ -72,6 +73,8 @@ export const Board = () => {
                 UpadateTitle={UpadateTitle}
                 tasks={Tasks}
                 CreatenewTask={CreatenewTask}
+                DeleteTask={DeleteTask}
+
 
               />
             )}
@@ -88,6 +91,10 @@ const newTask={
   content:`task ${Tasks.length +1}`
 }
 setTasks([...Tasks,newTask])
+  }
+  function DeleteTask(id){
+  const RestOfTasks=  Tasks.filter(task=>task.id!== id)
+  setTasks(RestOfTasks)
   }
 
   function CreateNewColumns() {

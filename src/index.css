@@ -14,7 +14,7 @@
       width: 3px;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-orange-800;
+    @apply bg-red-400  ;
     border-radius: 8px; /* Adjust the radius as needed */
     height: 5px;
 

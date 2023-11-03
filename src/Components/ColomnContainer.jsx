@@ -5,7 +5,7 @@ import { useState } from "react";
 import { PlusIcon } from "../Icons/PlusIcon";
 import Task from "./Task";
 import propTypes from "prop-types";
-const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks }) => {
+const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks,DeleteTask }) => {
   const [editMode, seteditMode] = useState(false);
   console.log(editMode);
   console.log("renderd");
@@ -38,7 +38,7 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
     );
   }
 
-  const hh = (e) => {
+  const onchangeTitle = (e) => {
     UpadateTitle(column.Id, e.target.value);
     seteditMode(false);
   };
@@ -66,10 +66,10 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
           {editMode && (
             <input
               defaultValue={column.Title}
-              // on={hh}
+              // on={onchangeTitle}
               autoFocus
               className="bg-ColumnBckground w-full focus:border-rose-500 border rounded-lg outline-none px-2"
-              onBlur={hh}
+              onBlur={onchangeTitle}
               onKeyDown={(e) => {
                 if (e.key !== "Enter") return;
                 UpadateTitle(column.Id, e.target.value);
@@ -93,7 +93,7 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
         {
           tasks.map((task,i)=>{
             return(
-              <Task key={i}  task={task}/>
+              <Task key={i}  task={task} DeleteTask={DeleteTask} />
             )
           })
         }
@@ -101,13 +101,15 @@ const ColomnContainer = ({ column, DeleteID, UpadateTitle,CreatenewTask,tasks })
       <button onClick={()=>{CreatenewTask(column.Id)}}  className="flex gap-3 border-2 border-ColumnBckground bg-mainsBckground rounded-md p-4  m-1 hover:text-rose-500 hover:border-rose-400 " ><PlusIcon/>Add Task </button>
     </div>
   );
+
 };
 ColomnContainer.propTypes = {
   column: propTypes.object.isRequired,
   DeleteID: propTypes.func.isRequired,
-  UpadateTitle: propTypes.func,
-  CreatenewTask: propTypes.func,
-  tasks:propTypes.array.isRequired
+  UpadateTitle: propTypes.func.isRequired,
+  CreatenewTask: propTypes.func.isRequired,
+  tasks:propTypes.array.isRequired,
+  DeleteTask: propTypes.func.isRequired,
 
 };
 
