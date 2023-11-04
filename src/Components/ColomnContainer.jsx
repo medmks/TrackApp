@@ -1,7 +1,7 @@
-import { useSortable } from "@dnd-kit/sortable";
+import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { Delete } from "../Icons/Delete";
 import { CSS } from "@dnd-kit/utilities";
-import { useState } from "react";
+import { useState,useMemo } from "react";
 import { PlusIcon } from "../Icons/PlusIcon";
 import Task from "./Task";
 import propTypes from "prop-types";
@@ -16,6 +16,8 @@ const ColomnContainer = ({
   const [editMode, seteditMode] = useState(false);
   console.log(editMode);
   console.log("renderd");
+  const TasksId = useMemo(() => tasks.map((task) => task.id), [tasks]);
+
   const {
     setNodeRef,
     attributes,
@@ -95,9 +97,11 @@ const ColomnContainer = ({
         </button>
       </div>
       <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
+        <SortableContext items={TasksId}>
         {tasks.map((task, i) => {
           return <Task key={i} task={task} DeleteTask={DeleteTask} />;
         })}
+        </SortableContext>
       </div>
       <button
         onClick={() => {

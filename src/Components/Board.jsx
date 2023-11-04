@@ -10,6 +10,7 @@ import {
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
+import Task from "./Task";
 export const Board = () => {
   const [Tasks, setTasks] = useState([]);
   const [columns, setColumns] = useState([
@@ -20,6 +21,8 @@ export const Board = () => {
   ]);
   console.log(Tasks);
   const [Activecolumn, setActiveColumns] = useState();
+    const [ActiveTask, setActiveTask] = useState();
+
 
   const columnsId = useMemo(() => columns.map((col) => col.Id), [columns]);
   const sensors = useSensors(
@@ -36,6 +39,7 @@ export const Board = () => {
         sensors={sensors}
         onDragStart={OnDragStart}
         onDragEnd={OnDragEnd}
+        onDragOver={onDragOver}
       >
         <div className="m-auto flex gap-4">
           <div className="flex gap-4">
@@ -71,6 +75,12 @@ export const Board = () => {
                 UpadateTitle={UpadateTitle}
                 tasks={Tasks}
                 CreatenewTask={CreatenewTask}
+                DeleteTask={DeleteTask}
+              />
+            )}
+              {ActiveTask && (
+              <Task
+                task={ActiveTask}
                 DeleteTask={DeleteTask}
               />
             )}
@@ -114,27 +124,84 @@ export const Board = () => {
   function OnDragStart(ev) {
     console.log(ev);
     if (ev.active.data.current?.type === "column") {
-      setActiveColumns(ev.active.data.current.column);
-    }
-    console.log(Activecolumn);
+      setActiveColumns(ev.active.data.current.column);  
+        console.log(Activecolumn);
     return;
+    }
+   if (ev.active.data.current?.type === "Task") {
+    setActiveTask(ev.active.data.current.task);  
+        console.log(Activecolumn);
+    return;
+    }
   }
   function OnDragEnd(e) {
+    setActiveColumns(null);
+    setActiveTask(null);
+
     const { active, over } = e;
     if (!over) return;
-    const activeColumnId = active.id;
-    const OverColumnId = over.id;
-    if (activeColumnId === OverColumnId) return;
+
+    const activeId = active.id;
+    const overId = over.id;
+
+    if (activeId === overId) return;
+
+    const isActiveAColumn = active.data.current.type === "column";
+    if (!isActiveAColumn) return;
+
+    console.log("DRAG END");
+
     setColumns((columns) => {
-      const ActivecolumnIndex = columns.findIndex(
-        (col) => col.Id === activeColumnId,
-      );
-      const OvercolumnIndex = columns.findIndex(
-        (col) => col.Id === OverColumnId,
-      );
-      return arrayMove(columns, ActivecolumnIndex, OvercolumnIndex);
+      const activeColumnIndex = columns.findIndex((col) => col.Id === activeId);
+
+      const overColumnIndex = columns.findIndex((col) => col.Id === overId);
+
+      return arrayMove(columns, activeColumnIndex, overColumnIndex);
     });
   }
+  function onDragOver(event) {
+    const { active, over } = event;
+    if (!over) return;
+
+    const activeId = active.id;
+    const overId = over.id;
+
+    if (activeId === overId) return;
+
+    const isActiveATask = active.data.current.type === "Task";
+    const isOverATask = over.data.current.type === "Task";
+
+    if (!isActiveATask) return;
+
+    // Im dropping a Task over another Task
+    if (isActiveATask && isOverATask) {
+      setTasks((tasks) => {
+        const activeIndex = tasks.findIndex((t) => t.id === activeId);
+        const overIndex = tasks.findIndex((t) => t.id === overId);
+
+        if (tasks[activeIndex].columnsId != tasks[overIndex].columnsId) {
+
+          tasks[activeIndex].columnsId = tasks[overIndex].columnsId;
+          return arrayMove(tasks, activeIndex, overIndex - 1);
+        }
+
+        return arrayMove(tasks, activeIndex, overIndex);
+      });
+    }
+
+    const isOverAColumn = over.data.current.type === "column";
+
+    // Im dropping a Task over a column
+    if (isActiveATask && isOverAColumn) {
+      setTasks((Tasks) => {
+        const activeIndex = Tasks.findIndex((t) => t.id === activeId);
+        Tasks[activeIndex].columnsId = overId;
+        console.log("DROPPING TASK OVER COLUMN", { activeIndex });
+        return arrayMove(Tasks, activeIndex, activeIndex);
+      });
+    }
+  }
+
 };
 function generateId() {
   return Math.floor(Math.random() * 10001);
