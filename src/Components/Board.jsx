@@ -53,6 +53,7 @@ export const Board = () => {
                   CreatenewTask={CreatenewTask}
                   tasks={Tasks.filter((Task) => Task.columnsId == col.Id)}
                   DeleteTask={DeleteTask}
+                  updateTask={updateTask}
                 />
               ))}
             </SortableContext>
@@ -76,12 +77,14 @@ export const Board = () => {
                 tasks={Tasks}
                 CreatenewTask={CreatenewTask}
                 DeleteTask={DeleteTask}
+                updateTask={updateTask}
               />
             )}
               {ActiveTask && (
               <Task
                 task={ActiveTask}
                 DeleteTask={DeleteTask}
+                updateTask={updateTask}
               />
             )}
           </DragOverlay>,
@@ -120,6 +123,14 @@ export const Board = () => {
       return { ...col, Title };
     });
     setColumns(EditedCol);
+  }
+  function updateTask(id, content) {
+    const newTasks = Tasks.map((task) => {
+      if (task.id !== id) return task;
+      return { ...task, content };
+    });
+
+    setTasks(newTasks);
   }
   function OnDragStart(ev) {
     console.log(ev);

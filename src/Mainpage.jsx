@@ -2,11 +2,9 @@ import Habbits from "./habbits";
 import CercleProgress from "./Cercle";
 const Mainpage = () => {
   return (
-    <div className=" w-3/4 h-fit border border-stone-600  rounded-xl mr-4">
-      <div className="border m-3 rounded-xl h-1/3  border-stone-600   ">
-        <h3 className="font-medium text-secondary  p-3   ">Salam Mohamed </h3>
-
-        <div className="flex flex-row  gap-3 pl-3">
+    <div className=" w-3/4 h-fit border border-stone-600 p-2  rounded-xl mr-2">
+      <h3 className="font-medium text-secondary  p-3   ">Salam Mohamed </h3>
+      <div className="flex flex-row  gap-3 pl-3">
           <div className="bg-green-500 w-fit p-1 rounded-full ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +23,7 @@ const Mainpage = () => {
           </div>
           <span>You are almost there</span>
         </div>
+      <div className="border  rounded-xl h-1/3  border-stone-600   ">
 
         <div className=" w-full ">
           <CercleProgress />

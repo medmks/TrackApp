@@ -12,6 +12,7 @@ const ColomnContainer = ({
   CreatenewTask,
   tasks,
   DeleteTask,
+  updateTask,
 }) => {
   const [editMode, seteditMode] = useState(false);
   console.log(editMode);
@@ -99,7 +100,7 @@ const ColomnContainer = ({
       <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
         <SortableContext items={TasksId}>
         {tasks.map((task, i) => {
-          return <Task key={i} task={task} DeleteTask={DeleteTask} />;
+          return <Task key={i} task={task} DeleteTask={DeleteTask} updateTask={updateTask}/>;
         })}
         </SortableContext>
       </div>
@@ -122,6 +123,7 @@ ColomnContainer.propTypes = {
   CreatenewTask: propTypes.func.isRequired,
   tasks: propTypes.array.isRequired,
   DeleteTask: propTypes.func.isRequired,
-};
+  updateTask: propTypes.func.isRequired,
+  }
 
 export default ColomnContainer;
