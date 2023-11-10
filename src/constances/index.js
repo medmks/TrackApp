@@ -5,6 +5,12 @@ const colors = {
     quarter: "rgba(149, 76, 233, 0.25)",
     zero: "rgba(149, 76, 233, 0)",
   },
+  Red: {
+    default: "rgba(67, 56, 202, 1)",
+    half: "rgba(67, 56, 202, 0.5)",
+    quarter: "rgba(67, 56, 202, 0.25)",
+    zero: "rgba(67, 56, 202, 0)",
+  },
   indigo: {
     default: "rgba(80, 102, 120, 1)",
     quarter: "rgba(80, 102, 120, 0.25)",

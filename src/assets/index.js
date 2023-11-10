@@ -1,2 +1,4 @@
 import notion from "./notion.png";
-export { notion };
+import download from "./download.png";
+import csv from "./csv.png";
+export { notion, download, csv };

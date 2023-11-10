@@ -1,17 +1,34 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 const HabbitTable = ({ element, index }) => {
+  const randNum = (Math.random() * 10).toFixed(0);
   return (
-    <div className=" flex flex-row items-center justify-between   ">
-      <div>
+    <div className=" flex flex-row items-center w-full justify-start m-2 ">
+      <div className="w-full flex justify-start items-center gap-4  flex-row">
+        <div
+          className={`w-2 h-8 ${
+            randNum >= 5 ? "bg-fuchsia-300" : "bg-indigo-400 "
+          }   rounded-[1px] `}
+        />
         <p className="text-[19px] ">{element}</p>
       </div>
-      <div className="w-[10em]  bg-slate-800 h-3  flex items-end  ">
-        <div
-          className={` bg-gradient-to-r from-violet-800 items-center justify-center to-violet-300 h-3 ]`}
-          style={{ width: `${index}em` }}
-        />
+      <div className="static flex justify-end ">
+        <div className="w-fit flex items-center p-1  h-4 border border-opacity-70  justify-start border-stone-600 rounded-xl ">
+          <div className="w-[10em] h-1 bg-gray-400 ">
+            <div
+              className={` bg-indigo-700    items-center justify-center  to-indigo-500 h-1 ]`}
+              style={{ width: `${randNum}em` }}
+            />
+          </div>
+        </div>
+      </div>
+      <p className="flex justify-center ml-5 w-full">{randNum * 10}% </p>
+      {/* &nbsp;*/}
+      <div className="w-full flex justify-center">
+        <p>
+          {index} H &nbsp;{randNum} Min
+        </p>
       </div>
     </div>
   );
@@ -20,23 +37,23 @@ HabbitTable.propTypes = {
   element: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
-const Habbits = ({ acivitiesNames }) => {
-  const [Taskes, setTaskes] = useState(["Gym", "Jogging", "Coding"]);
-
-  // useEffect(() => {
-  //   const Getnames = () => {
-  //     const data = acivitiesNames();
-  //     setTaskes(data);
-  //     console.log(Taskes);
-  //   };
-  //   Getnames();
-  // }, [acivitiesNames]);
-
+const Habbits = () => {
+  const [Taskes] = useState([
+    "meeting",
+    "Jogging",
+    "Coding",
+    "reading",
+    "studing",
+    "Coding",
+    "Gym",
+    "Jogging",
+    "Coding",
+  ]);
   return (
-    <div className="  w-[35em] m-8 ">
-      <div className=" bg-transparent border rounded-xl">
-        <div className="bg-zinc-900  rounded-t-xl p-4 border ">
-          <h1 className=" text-white text-[25px] ">Habbits Progression</h1>
+    <div className="m-3   ">
+      <div className=" bg-transparent border border-stone-500   rounded-xl">
+        <div className="   p-4 ">
+          <h1 className=" text-white text-[25px] pl-2 ">Task Progression</h1>
         </div>
         <div className="p-4">
           {Taskes &&
@@ -50,6 +67,6 @@ const Habbits = ({ acivitiesNames }) => {
 };
 
 export default Habbits;
-Habbits.propTypes = {
-  acivitiesNames: PropTypes.func.isRequired,
-};
+// Habbits.propTypes = {
+//   acivitiesNames: PropTypes.func.isRequired,
+// };
