@@ -14,15 +14,13 @@ import Task from "./Task";
 export const Board = () => {
   const [Tasks, setTasks] = useState([]);
   const [columns, setColumns] = useState([
-    { Id: 2167, Title: "Column 1" },
-    { Id: 8892, Title: "Column 2" },
-    { Id: 6411, Title: "Column 3" },
-    { Id: 1517, Title: "Column 4" },
+    { Id: 1, Title: "TODO" },
+    { Id: 2, Title: "Doing" },
+    { Id: 3, Title: "Done" },
   ]);
   console.log(Tasks);
   const [Activecolumn, setActiveColumns] = useState();
-    const [ActiveTask, setActiveTask] = useState();
-
+  const [ActiveTask, setActiveTask] = useState();
 
   const columnsId = useMemo(() => columns.map((col) => col.Id), [columns]);
   const sensors = useSensors(
@@ -34,7 +32,7 @@ export const Board = () => {
   );
 
   return (
-    <div className=" m-auto w-full  flex min-h-screen  items-center overflow-x-auto overflow-y-hidden px[40px]  ">
+    <div className=" w-full mt-10  flex min-h-[420px]  items-start overflow-x-auto overflow-y-hidden px[40px]  ">
       <DndContext
         sensors={sensors}
         onDragStart={OnDragStart}
@@ -62,14 +60,14 @@ export const Board = () => {
             onClick={() => {
               CreateNewColumns();
             }}
-            className="w-[360px] h-[60px] cursor-pointer min-w-[360px] rounded-lg bg-mainsBckground border-ColumnBckground ring-rose-500 border-2 p-4   hover:ring-2 flex gap-2"
+            className=" m-1 w-[360px] h-[60px] cursor-pointer min-w-[360px] rounded-lg bg-mainsBckground border-ColumnBckground ring-rose-500 border-2 p-4   hover:ring-2 flex gap-2"
           >
             <PlusIcon /> Add Column
           </button>
         </div>
         {createPortal(
           <DragOverlay>
-            {Activecolumn && (
+            {Activecolumn ? (
               <ColomnContainer
                 column={Activecolumn}
                 DeleteID={DeleteID}
@@ -79,14 +77,14 @@ export const Board = () => {
                 DeleteTask={DeleteTask}
                 updateTask={updateTask}
               />
-            )}
-              {ActiveTask && (
+            ) : null}
+            {ActiveTask ? (
               <Task
                 task={ActiveTask}
                 DeleteTask={DeleteTask}
                 updateTask={updateTask}
               />
-            )}
+            ) : null}
           </DragOverlay>,
           document.body,
         )}
@@ -135,14 +133,14 @@ export const Board = () => {
   function OnDragStart(ev) {
     console.log(ev);
     if (ev.active.data.current?.type === "column") {
-      setActiveColumns(ev.active.data.current.column);  
-        console.log(Activecolumn);
-    return;
+      setActiveColumns(ev.active.data.current.column);
+      console.log(Activecolumn);
+      return;
     }
-   if (ev.active.data.current?.type === "Task") {
-    setActiveTask(ev.active.data.current.task);  
-        console.log(Activecolumn);
-    return;
+    if (ev.active.data.current?.type === "Task") {
+      setActiveTask(ev.active.data.current.task);
+      console.log(Activecolumn);
+      return;
     }
   }
   function OnDragEnd(e) {
@@ -191,7 +189,6 @@ export const Board = () => {
         const overIndex = tasks.findIndex((t) => t.id === overId);
 
         if (tasks[activeIndex].columnsId != tasks[overIndex].columnsId) {
-
           tasks[activeIndex].columnsId = tasks[overIndex].columnsId;
           return arrayMove(tasks, activeIndex, overIndex - 1);
         }
@@ -212,7 +209,6 @@ export const Board = () => {
       });
     }
   }
-
 };
 function generateId() {
   return Math.floor(Math.random() * 10001);

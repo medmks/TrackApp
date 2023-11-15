@@ -1,7 +1,7 @@
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { Delete } from "../Icons/Delete";
 import { CSS } from "@dnd-kit/utilities";
-import { useState,useMemo } from "react";
+import { useState, useMemo } from "react";
 import { PlusIcon } from "../Icons/PlusIcon";
 import Task from "./Task";
 import propTypes from "prop-types";
@@ -43,7 +43,7 @@ const ColomnContainer = ({
       <div
         ref={setNodeRef}
         style={Style}
-        className=" w-[360px] h-[500px] max-h-[500px] border-2 border-rose-500 opacity-40  rounded-md flex flex-col"
+        className=" w-[350px] h-[500px] max-h-[450px] border-2 border-rose-500 opacity-40  rounded-md flex flex-col"
       ></div>
     );
   }
@@ -56,7 +56,7 @@ const ColomnContainer = ({
     <div
       ref={setNodeRef}
       style={Style}
-      className="bg-black w-[360px] h-[500px] max-h-[500px] rounded-md flex flex-col"
+      className="bg-zinc-800  w-[350px] h-[500px] max-h-[450px] rounded-md flex flex-col"
     >
       <div
         {...attributes}
@@ -67,10 +67,18 @@ const ColomnContainer = ({
         }}
       >
         <div className="flex gap-2">
-          <div className="flex justify-center items-center bg-ColumnBckground px-2 py-1 text-sm  ">
+          <div className="flex justify-center items-center bg-ColumnBckground px-2 py-1 text-sm rounded-md ">
             {column.Id}
           </div>
-          {!editMode && column.Title}
+          {!editMode && (
+            <span className="relative inline-block px-3 py-1 font-semibold text-rose-400 leading-tight">
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-rose-900 opacity-50 rounded-full"
+              ></span>
+              <span className="relative">{column.Title}</span>
+            </span>
+          )}
           {editMode && (
             <input
               defaultValue={column.Title}
@@ -99,9 +107,16 @@ const ColomnContainer = ({
       </div>
       <div className="flex flex-grow   flex-col overflow-y-auto overflow-x-hidden">
         <SortableContext items={TasksId}>
-        {tasks.map((task, i) => {
-          return <Task key={i} task={task} DeleteTask={DeleteTask} updateTask={updateTask}/>;
-        })}
+          {tasks.map((task, i) => {
+            return (
+              <Task
+                key={i}
+                task={task}
+                DeleteTask={DeleteTask}
+                updateTask={updateTask}
+              />
+            );
+          })}
         </SortableContext>
       </div>
       <button
@@ -124,6 +139,6 @@ ColomnContainer.propTypes = {
   tasks: propTypes.array.isRequired,
   DeleteTask: propTypes.func.isRequired,
   updateTask: propTypes.func.isRequired,
-  }
+};
 
 export default ColomnContainer;

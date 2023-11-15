@@ -1,8 +1,6 @@
 import { useState, useRef } from "react";
 import { csv } from "./assets";
-
 import BarChart from "./ChartBar";
-// import Habbits from "./habbits";
 import Activity from "./assets/Acivities";
 import Timer from "./Components/Timer";
 const SideBar = () => {
@@ -40,11 +38,15 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-1/4  h-screen border flex justify-center  rounded-xl border-stone-600 ">
-      <div className=" flex justify-start items-start">
-        <Timer/>
-      </div>
+    <div className="w-2/4  h-screen border border-stone-700 rounded-md flex flex-col gap-16  ">
+      {/* <div className=" flex justify-start mt-4 items-start"> */}
+        <Timer />
+      {/* </div */}
       
+      <div className="  m-0 w-full   ">
+        {!FetchedData ? <input type="file" onChange={(e)=>handleFileChange(e)}/>:null}
+        {FetchedData ? <BarChart getdata={FetchedData} />:null}
+      </div>
     </div>
   );
 };

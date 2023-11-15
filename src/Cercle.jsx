@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+
 
 const PerformanceCard = ({
   percent,
@@ -11,11 +12,12 @@ const PerformanceCard = ({
   CirleColor,
 }) => {
   const circumference = 50 * 2 * Math.PI;
-  const [percentage] = useState(percent);
+  const [percentage,setAnimatedPercentage] = useState();
+
 
   return (
     <div
-      className="flex items-center flex-wrap max-w-md px-10  shadow-lg shadow-zinc-700/90 rounded-2xl"
+      className="flex items-center   flex-row justify-between   max-w-md px-10  shadow-lg shadow-zinc-700/90 rounded-2xl"
       style={{ backgroundColor: `${BackColor}` }}
     >
       <div
@@ -36,14 +38,16 @@ const PerformanceCard = ({
             cy="60"
           />
           <circle
-            className={color}
+            className={`${color} progress-circle `}
             style={{ color: `${color}` }}
             strokeWidth="10"
             stroke="currentColor"
             strokeDasharray={circumference}
+            data-percent="100"
             strokeDashoffset={
-              circumference - (percentage / 100) * circumference
+              circumference - (percent / 100) * circumference
             }
+            
             strokeLinecap="round"
             fill="transparent"
             r="50"
@@ -53,16 +57,20 @@ const PerformanceCard = ({
         </svg>
         <span className="absolute text-2xl" style={{ color: `${TextColor}` }}>
           {" "}
-          {percentage}%
+          {percent}%
         </span>
       </div>
-      <p className="ml-10 font-medium text-gray-600 sm:text-xl">{title}</p>
+
+      <div className=" flex flex-col items-center text-center ">
+              <p className=" font-medium text-gray-600 sm:text-xl">{title}</p>
       <span
         className="ml-auto text-xl font-medium  hidden sm:block"
         style={{ color: `${TextColor}` }}
       >
         {extra}
       </span>
+      </div>
+
     </div>
   );
 };
@@ -80,7 +88,7 @@ const CercleProgress = () => {
     <div className=" py-10 px-10 ">
       <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
         <PerformanceCard
-          percent={53}
+          percent={26}
           color="text-red-500"
           title="Project "
           extra="+25%"
@@ -89,7 +97,7 @@ const CercleProgress = () => {
           CirleColor="#1c1b22"
         />
         <PerformanceCard
-          percent={80}
+          percent={50}
           color="text-blue-700"
           title="Focus Time"
           extra="+30 min"
