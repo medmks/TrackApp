@@ -5,29 +5,27 @@ const Mainpage = () => {
     <div className=" w-3/4 h-fit border border-stone-600 p-2  rounded-xl mr-2">
       <h3 className="font-medium text-secondary  p-3   ">Salam Mohamed </h3>
       <div className="flex flex-row  gap-3 pl-3">
-          <div className="bg-green-500 w-fit p-1 rounded-full ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="w-4 h-4 "
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-              />
-            </svg>
-          </div>
-          <span>You are almost there</span>
+        <div className="bg-green-500 w-fit p-1 rounded-full ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-4 h-4 "
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
         </div>
-      <div className="border  rounded-xl h-1/3  border-stone-600   ">
+        <span>You are almost there</span>
+      </div>
 
-        <div className=" w-full ">
-          <CercleProgress />
-        </div>
+      <div className=" w-full ">
+        <CercleProgress />
       </div>
       <Habbits acivitiesNames={7} />
     </div>
