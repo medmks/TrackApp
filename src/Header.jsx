@@ -6,13 +6,11 @@ const Header = () => {
       <div className=" flex flex-row  items-center  justify-between p-2 mr-16   ">
         <h1 className="ml-2 text-[26px]  font-medium ">Home</h1>
         <div className=" flex flex-row gap-3 ">
-          
-          <button  className="bg-blue-700  p-3 w-48   rounded-3xl text-center font-normal text hover:bg-blue-600  ">
-           
-            <Link to="/MyBoard"> Track You Tasks{""}</Link>
+          <button className="bg-blue-700  p-3 w-48   rounded-3xl text-center font-normal text hover:bg-blue-600  ">
+            <Link to="/MyBoard"> New Task{""}</Link>
           </button>
           <button className="bg-gray-700 w-48   p-3 rounded-3xl text-center font-normal text hover:bg-gray-600  ">
-            Send & receive{" "}
+            New & Analyse{" "}
           </button>
           <button className="bg-zinc-900  rounded-full p-3 flex justify-center items-center hover:bg-zinc-700 ">
             <svg

@@ -4,8 +4,8 @@ import BackGroundBloobs from "./Components/BackGroundBloobs";
 const BoardPage = () => {
   return (
     <React.Fragment>
-        {/* <BackGroundBloobs /> */}
-        <Board />
+      <BackGroundBloobs />
+      <Board />
     </React.Fragment>
   );
 };

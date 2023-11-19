@@ -82,14 +82,12 @@ function Task({ task, DeleteTask, updateTask }) {
         style={Style}
         className="flex items-center mx-2 hover:ring-inset border-2 border-ColumnBckground h-[100px] min-h-[100px]  rounded-md p-4  bg-mainsBckground m-1 justify-between"
       >
-
-          <p
-            onClick={() => toggleEditMode()}
-            className={` h-[90%] w-full overflow-y-auto overflow-x-hidden  whitespace-pre-wrap `}
-          >
-            {task.content}
-          </p>
-
+        <p
+          onClick={() => toggleEditMode()}
+          className={` h-[90%] w-full overflow-y-auto overflow-x-hidden  whitespace-pre-wrap `}
+        >
+          {task.content}
+        </p>
 
         {MouseOVer ? (
           <button

@@ -78,7 +78,7 @@ const BarChart = (getdata) => {
   const data = () => {
     return {
       // labels: days ? days[step] : null,
-      labels:["Mon", "Tur", "wed", "Tue", "Fri", "sat","sun"],
+      labels: ["Mon", "Tur", "wed", "Tue", "Fri", "sat", "sun"],
       datasets: [
         {
           // data: [33, 53, 85, 41, 44, 65],
@@ -109,9 +109,7 @@ const BarChart = (getdata) => {
   return (
     <div className=" ">
       <div className="flex justify-center flex-col flex-wrap rounded-3xl items-center    ">
-        <h1 className="text-[23px] text-center ">
-          Time Spent on phone each week
-        </h1>
+        <h1 className="text-[23px] text-center ">Time on phone each week</h1>
         <Bar ref={chartRef} className=" " data={data()} options={options} />
         <div className=" flex flex-row justify-center  w-full rounded-2xl ">
           <button
@@ -134,10 +132,10 @@ const BarChart = (getdata) => {
             </svg>
           </button>
           <span className=" bg-zinc-900  min-w-[17em] text-center rounded-xl  ">
-              <h2 className="  text-rose-500 text-[20px]  ">
-                {days && days[step][0]}  {" "}
-                {/* {days && days[step][6] ? days[step][6] : "Today"} */}
-              </h2>
+            <h2 className="  text-rose-500 text-[20px]  ">
+              {days && days[step][0]}{" "}
+              {/* {days && days[step][6] ? days[step][6] : "Today"} */}
+            </h2>
           </span>
 
           <button

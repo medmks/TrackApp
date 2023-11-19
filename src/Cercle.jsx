@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 
 const PerformanceCard = ({
   percent,
@@ -12,8 +10,6 @@ const PerformanceCard = ({
   CirleColor,
 }) => {
   const circumference = 50 * 2 * Math.PI;
-  const [percentage,setAnimatedPercentage] = useState();
-
 
   return (
     <div
@@ -44,10 +40,7 @@ const PerformanceCard = ({
             stroke="currentColor"
             strokeDasharray={circumference}
             data-percent="100"
-            strokeDashoffset={
-              circumference - (percent / 100) * circumference
-            }
-            
+            strokeDashoffset={circumference - (percent / 100) * circumference}
             strokeLinecap="round"
             fill="transparent"
             r="50"
@@ -62,15 +55,14 @@ const PerformanceCard = ({
       </div>
 
       <div className=" flex flex-col items-center text-center ">
-              <p className=" font-medium text-gray-600 sm:text-xl">{title}</p>
-      <span
-        className="ml-auto text-xl font-medium  hidden sm:block"
-        style={{ color: `${TextColor}` }}
-      >
-        {extra}
-      </span>
+        <p className=" font-medium text-gray-600 sm:text-xl">{title}</p>
+        <span
+          className="ml-auto text-xl font-medium  hidden sm:block"
+          style={{ color: `${TextColor}` }}
+        >
+          {extra}
+        </span>
       </div>
-
     </div>
   );
 };
@@ -88,7 +80,7 @@ const CercleProgress = () => {
     <div className=" py-10 px-10 ">
       <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
         <PerformanceCard
-          percent={26}
+          percent={70}
           color="text-red-500"
           title="Project "
           extra="+25%"
@@ -97,7 +89,7 @@ const CercleProgress = () => {
           CirleColor="#1c1b22"
         />
         <PerformanceCard
-          percent={50}
+          percent={43}
           color="text-blue-700"
           title="Focus Time"
           extra="+30 min"

@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 const HabbitTable = ({ element, index }) => {
   const randNum = (Math.random() * 10).toFixed(0);
   return (
-    <div className=" flex flex-row items-center  justify-start m-2 ">
-      <div className="w-full flex justify-start items-center gap-4  flex-row">
+    <div className=" flex flex-row items-center  justify-start m-2  ">
+      <div className="w-full flex justify-start items-center gap-4  flex-row ">
         <div
           className={`w-2 h-8 ${
-            randNum >= 5 ? "bg-blue-400" : "bg-blue-700 "
+            randNum <= 5 ? "    bg-blue-400" : "  bg-blue-700 "
           }   rounded-[1px] `}
         />
         <p className="text-[19px] ">{element}</p>
@@ -39,23 +39,23 @@ HabbitTable.propTypes = {
 };
 const Habbits = () => {
   const [Taskes] = useState([
-    "meeting",
-    "Jogging",
     "Coding",
     "reading",
-    "studing",
-    "Coding",
-    "Gym",
-    "Jogging",
-    "Coding",
+    "Focus Time",
+    "Debugging",
+    "Goodle Cloud",
+    "NextJs Auth",
+    "Routing feature",
   ]);
   return (
-    <div className="m-3   ">
+    <div className="m-3 ">
       <div className=" bg-transparent border border-stone-500   rounded-xl">
         <div className="   p-4 ">
-          <h1 className=" text-white text-[25px] pl-2 ">Task Progression</h1>
+          <h1 className=" text-slate-400  text-[25px] pl-2 ">
+            Task Progression
+          </h1>
         </div>
-        <div className="p-4">
+        <div className="p-4 -mt-5 ">
           {Taskes &&
             Taskes?.map((e, i) => (
               <HabbitTable key={i} element={e} index={i + 4} />
