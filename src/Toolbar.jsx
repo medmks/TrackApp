@@ -94,7 +94,7 @@ const Toolbar = () => {
           </button>
         </div>
         <div className="flex justify-center items-end mt-20 ">
-          <div className=" bg-gradient-to-tl  from-slate-700  gap-3 flex flex-col  to-slate-600 h-48 m-3  w-full rounded-2xl  ">
+          <div className=" bg-gradient-to-tl  from-slate-700  gap-3 flex flex-col  to-slate-500 h-44 m-3  w-full rounded-2xl  ">
             <div className=" w-fit  bg-slate-300  p-1 drop-shadow-lg  mt-3 ml-3   rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const Toolbar = () => {
               <p>Need help?</p>
               <p>Checkout our docs</p>
             </div>
-            <button className="bg-white m-2 mt-5 font-medium text-gray-950  hover:drop-shadow-lg p-1 rounded-md  drop-shadow-md ">
+            <button className="bg-white m-2 mt-3 font-medium text-gray-950  hover:drop-shadow-lg p-1 rounded-md  drop-shadow-md ">
               Documentation
             </button>
           </div>
