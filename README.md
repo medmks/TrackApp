@@ -4,7 +4,7 @@ This project allows to track tasks and habits and also can read csv file and tra
 
 In this case I imported a csv file from Notion with Acitivites that I included and reading it 
 
-![appre](https://github.com/medmks/TrackApp/assets/90214045/fcce5798-5988-41f3-b2fe-a08aff768dd6)
+![prime](https://github.com/medmks/TrackApp/assets/90214045/178383b9-96e4-423f-b919-beac621b6bd9)
 
 KanbanBoard Page we can Drag and drop new tasks 
 ![s](https://github.com/medmks/TrackApp/assets/90214045/02ab9a23-2d9b-4aac-bbc8-384706d32b33)
