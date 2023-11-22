@@ -14,9 +14,11 @@ import Task from "./Task";
 export const Board = () => {
   const [Tasks, setTasks] = useState([]);
   const [columns, setColumns] = useState([
-    { Id: 1, Title: "TODO" },
-    { Id: 2, Title: "Doing" },
-    { Id: 3, Title: "Done" },
+    { Id: 1, Title: "Technical Skills" },
+    { Id: 2, Title: "Communication" },
+    { Id: 3, Title: "Languages" },
+    { Id: 4, Title: "Self-Improving" },
+
   ]);
   console.log(Tasks);
   const [Activecolumn, setActiveColumns] = useState();
