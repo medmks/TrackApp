@@ -109,7 +109,20 @@ const BarChart = (getdata) => {
   return (
     <div className=" ">
       <div className="flex justify-center flex-col flex-wrap rounded-3xl items-center    ">
-        <h1 className="text-[23px] text-center ">Time on phone each week</h1>
+        <select name="" id="" className="p-2">
+          <option className="p-2" value="" >Time on phone</option>
+          <option value="" >Activity one</option>
+          <option value="" >Activity Two</option>
+          <option value="" >Activity Tree</option>
+
+        </select>
+        <h1 className="text-[23px] text-center ">
+          
+          
+          Time on phone each week
+          
+          
+          </h1>
         <Bar ref={chartRef} className=" " data={data()} options={options} />
         <div className=" flex flex-row justify-center  w-full rounded-2xl ">
           <button
