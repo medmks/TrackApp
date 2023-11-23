@@ -18,7 +18,6 @@ export const Board = () => {
     { Id: 2, Title: "Communication" },
     { Id: 3, Title: "Languages" },
     { Id: 4, Title: "Self-Improving" },
-
   ]);
   console.log(Tasks);
   const [Activecolumn, setActiveColumns] = useState();
