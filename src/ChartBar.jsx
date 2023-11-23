@@ -29,7 +29,7 @@ const BarChart = (getdata) => {
       }
     };
     ApplyNumers();
-  }, []);
+  }, [getdata]);
 
   const options = {
     scales: {

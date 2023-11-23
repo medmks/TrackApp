@@ -33,7 +33,7 @@ export const SomeStyle = () => (
 
 export const Primary = {
   args: {
-    percent: 30,
+    percent: 80,
     color: "text-red-500",
     title: "something",
     extra: "+25%",
