@@ -13,7 +13,7 @@ const PerformanceCard = ({
 
   return (
     <div
-      className="flex flex-wrap gap-14  max-w-sm min-w-fit   px-10  drop-shadow-lg      rounded-2xl "
+      className="flex flex-wrap gap-14  max-w-sm min-w-fit   px-10  drop-shadow-lg  rounded-2xl mb-3"
       style={{ backgroundColor: `${BackColor}` }}
     >
       <div
@@ -78,13 +78,13 @@ PerformanceCard.propTypes = {
 const CercleProgress = () => {
   return (
     <div className=" m-3 mt-10 mb-10">
-      <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
+      <div className=" grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
         <PerformanceCard
           percent={35}
-          color="text-red-500"
+          color="text-rose-500"
           title="Focus Time"
           extra="+30 min"
-          BackColor="#222222"
+          BackColor="#F4CE14"
           TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
@@ -94,26 +94,26 @@ const CercleProgress = () => {
           color="text-red-500"
           title="Focus time"
           extra="+30 min"
-          BackColor="#222222"
+          BackColor="#F4CE14"
           TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
 
         <PerformanceCard
           percent={18}
-          color="text-red-500"
+          color="text-blue-500"
           title="Project "
           extra="+25%"
-          BackColor="#222222"
+          BackColor="#F4CE14"
           TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
         <PerformanceCard
           percent={58}
-          color="text-red-500"
+          color="text-rose-500"
           title="Project "
           extra="+25%"
-          BackColor="#222222"
+          BackColor="#F4CE14"
           TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
