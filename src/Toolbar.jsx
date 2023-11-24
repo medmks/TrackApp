@@ -94,8 +94,8 @@ const Toolbar = () => {
           </button>
         </div>
         <div className="flex justify-center items-end mt-20 ">
-          <div className=" bg-gradient-to-tl  from-blue-950  gap-3 flex flex-col  to-blue-800 h-44 m-3  w-full rounded-2xl  ">
-            <div className=" w-fit  bg-slate-300  p-1 drop-shadow-lg  mt-3 ml-3   rounded-md">
+          <div className=" bg-gradient-to-tl  from-yellow-700    gap-3 flex flex-col  to-yellow-600    h-44 m-3  w-full rounded-2xl  ">
+            <div className=" w-fit  bg-white opacity-70   p-1 drop-shadow-lg  mt-3 ml-3   rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

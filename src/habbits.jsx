@@ -8,7 +8,7 @@ const HabbitTable = ({ element, index }) => {
       <div className="w-full flex justify-start items-center gap-4  flex-row ">
         <div
           className={`w-2 h-8 ${
-            randNum <= 5 ? "    bg-gray-400 " : "  bg-gray-700 "
+            randNum <= 5 ? "    bg-indigo-400 " : "  bg-indigo-700 "
           }   rounded-[1px] `}
         />
         <p className="text-[19px] ">{element}</p>

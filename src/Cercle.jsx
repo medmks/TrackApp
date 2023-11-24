@@ -48,17 +48,17 @@ const PerformanceCard = ({
             cy="60"
           />
         </svg>
-        <span className="absolute text-2xl" style={{ color: `${TextColor}` }}>
+        <span className={`absolute text-2xl ${color}`} style={{ color: `${''}` }}>
           {" "}
           {percent}%
         </span>
       </div>
 
       <div className=" flex flex-col justify-center   items-center  text-center ">
-        <p className=" font-medium text-gray-500 sm:text-xl">{title}</p>
+        <p className=" font-medium text-gray-600 outline-0   sm:text-xl">{title}</p>
         <span
-          className=" text-xl font-medium    sm:block"
-          style={{ color: `${TextColor}` }}
+          className={`text-xl font-medium ${color}   sm:block`}
+          style={{ color: `${''}` }}
         >
           {extra}
         </span>
@@ -85,17 +85,17 @@ const CercleProgress = () => {
           title="Focus Time"
           extra="+30 min"
           BackColor="#F4CE14"
-          TextColor="#FC2947"
+          TextColor=""
           CirleColor="#1c1b22"
         />
 
         <PerformanceCard
           percent={84}
           color="text-red-500"
-          title="Focus time"
-          extra="+30 min"
+          title="Reading"
+          extra="+22 min"
           BackColor="#F4CE14"
-          TextColor="#FC2947"
+          TextColor=""
           CirleColor="#1c1b22"
         />
 
@@ -105,16 +105,16 @@ const CercleProgress = () => {
           title="Project "
           extra="+25%"
           BackColor="#F4CE14"
-          TextColor="#FC2947"
+          TextColor=""
           CirleColor="#1c1b22"
         />
         <PerformanceCard
           percent={58}
-          color="text-rose-500"
-          title="Project "
-          extra="+25%"
+          color="text-blue-500"
+          title="study time"
+          extra="+6min"
           BackColor="#F4CE14"
-          TextColor="#FC2947"
+          TextColor=""
           CirleColor="#1c1b22"
         />
       </div>
