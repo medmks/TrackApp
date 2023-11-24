@@ -8,7 +8,7 @@ const HabbitTable = ({ element, index }) => {
       <div className="w-full flex justify-start items-center gap-4  flex-row ">
         <div
           className={`w-2 h-8 ${
-            randNum <= 5 ? "    bg-blue-400" : "  bg-blue-700 "
+            randNum <= 5 ? "    bg-gray-400 " : "  bg-gray-700 "
           }   rounded-[1px] `}
         />
         <p className="text-[19px] ">{element}</p>
@@ -17,7 +17,7 @@ const HabbitTable = ({ element, index }) => {
         <div className="w-fit flex items-center p-1  h-4 border border-opacity-70  justify-start border-stone-600 rounded-xl ">
           <div className="w-[10em] h-1 bg-gray-400 ">
             <div
-              className={` bg-blue-700    items-center justify-center  to-blue-500 h-1 ]`}
+              className={` bg-blue-600    h-1 ]`}
               style={{ width: `${randNum}em` }}
             />
           </div>
@@ -45,7 +45,6 @@ const Habbits = () => {
     "Debugging",
     "Goodle Cloud",
     "NextJs Auth",
-    "Routing feature",
   ]);
   return (
     <div className="m-3 ">

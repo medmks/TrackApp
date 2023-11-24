@@ -12,22 +12,27 @@ const BarChart = (getdata) => {
   const [days, setdays] = useState(null);
 
   const [step, setstep] = useState(0);
+  const FakeData=[[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55]]
+
+  const ApplyNumers = () => {
+    console.log("This is from barchar ");
+    const data = getdata?.getdata.subArrayCollection;
+
+    if (data !== null) {
+      let min = data.map((e) => e.map((e) => e.numbers));
+      let days = data.map((e) => e.map((e) => e.date));
+      console.log(days);
+
+      setdays(days);
+      setnumbers(min);
+      setstep(min.length - 1);
+      console.log(numbers);
+    }
+    return numbers
+    
+  };
   useEffect(() => {
-    const ApplyNumers = () => {
-      console.log("This is from barchar ");
-      const data = getdata?.getdata.subArrayCollection;
 
-      if (data !== null) {
-        let min = data.map((e) => e.map((e) => e.numbers));
-        let days = data.map((e) => e.map((e) => e.date));
-        console.log(days);
-
-        setdays(days);
-        setnumbers(min);
-        setstep(min.length - 1);
-        console.log(numbers);
-      }
-    };
     ApplyNumers();
   }, [getdata]);
 
@@ -105,24 +110,29 @@ const BarChart = (getdata) => {
     };
   };
   //  shadow-2xl  shadow-indigo-500/50
+  const [selectedActivity, setSelectedActivity] = useState([]);
 
+  const handleSelectChange = (event) => {
+    // When the user selects an option, parse the string value back to an array
+    const selectedValue = event.target.value;
+    const arrayValue = selectedValue ? JSON.parse(selectedValue) : [];
+    setnumbers(arrayValue);
+    console.log(selectedActivity);
+  };
   return (
     <div className=" ">
       <div className="flex justify-center flex-col flex-wrap rounded-3xl items-center    ">
-        <select name="" id="" className="p-2">
-          <option className="p-2" value="" >Time on phone</option>
-          <option value="" >Activity one</option>
-          <option value="" >Activity Two</option>
-          <option value="" >Activity Tree</option>
-
+        <select id="selectOptions"
+        value={JSON.stringify(selectedActivity)} // Convert array to string when setting the value
+        onChange={handleSelectChange} >
+          <option className="p-2" value=''>
+            Time on phone
+          </option>
+          <option  value={JSON.stringify(FakeData)}>Activity one</option>
+          <option value="">Activity Two</option>
+          <option value="">Activity Tree</option>
         </select>
-        <h1 className="text-[23px] text-center ">
-          
-          
-          Time on phone each week
-          
-          
-          </h1>
+        <h1 className="text-[23px] text-center ">Time on phone each week</h1>
         <Bar ref={chartRef} className=" " data={data()} options={options} />
         <div className=" flex flex-row justify-center  w-full rounded-2xl ">
           <button

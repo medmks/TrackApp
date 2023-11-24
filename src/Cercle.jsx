@@ -13,11 +13,11 @@ const PerformanceCard = ({
 
   return (
     <div
-      className="flex items-center   flex-row justify-between   max-w-md px-10  shadow-lg shadow-zinc-700/90 rounded-2xl"
+      className="flex flex-wrap gap-14  max-w-sm min-w-fit   px-10  drop-shadow-lg  rounded-2xl mb-3"
       style={{ backgroundColor: `${BackColor}` }}
     >
       <div
-        className="flex items-center justify-center -m-6 overflow-hidden  rounded-full "
+        className="flex flex-shrink-0 items-center justify-center -m-6 overflow-hidden  rounded-full "
         style={{ backgroundColor: `${CirleColor}` }}
       >
         <svg
@@ -34,7 +34,7 @@ const PerformanceCard = ({
             cy="60"
           />
           <circle
-            className={`${color} progress-circle `}
+            className={`${color} progress-circle flex flex-wrap  `}
             style={{ color: `${color}` }}
             strokeWidth="10"
             stroke="currentColor"
@@ -54,10 +54,10 @@ const PerformanceCard = ({
         </span>
       </div>
 
-      <div className=" flex flex-col items-center text-center ">
-        <p className=" font-medium text-gray-600 sm:text-xl">{title}</p>
+      <div className=" flex flex-col justify-center   items-center  text-center ">
+        <p className=" font-medium text-gray-500 sm:text-xl">{title}</p>
         <span
-          className="ml-auto text-xl font-medium  hidden sm:block"
+          className=" text-xl font-medium    sm:block"
           style={{ color: `${TextColor}` }}
         >
           {extra}
@@ -77,24 +77,44 @@ PerformanceCard.propTypes = {
 };
 const CercleProgress = () => {
   return (
-    <div className=" py-10 px-10 ">
-      <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
+    <div className=" m-3 mt-10 mb-10">
+      <div className=" grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
         <PerformanceCard
-          percent={70}
+          percent={35}
+          color="text-rose-500"
+          title="Focus Time"
+          extra="+30 min"
+          BackColor="#F4CE14"
+          TextColor="#FC2947"
+          CirleColor="#1c1b22"
+        />
+
+        <PerformanceCard
+          percent={84}
           color="text-red-500"
+          title="Focus time"
+          extra="+30 min"
+          BackColor="#F4CE14"
+          TextColor="#FC2947"
+          CirleColor="#1c1b22"
+        />
+
+        <PerformanceCard
+          percent={18}
+          color="text-blue-500"
           title="Project "
           extra="+25%"
-          BackColor="#d7d745"
-          TextColor="#de3535"
+          BackColor="#F4CE14"
+          TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
         <PerformanceCard
-          percent={43}
-          color="text-blue-700"
-          title="Focus Time"
-          extra="+30 min"
-          BackColor="#d7d745"
-          TextColor="#0b5ffa"
+          percent={58}
+          color="text-rose-500"
+          title="Project "
+          extra="+25%"
+          BackColor="#F4CE14"
+          TextColor="#FC2947"
           CirleColor="#1c1b22"
         />
       </div>
