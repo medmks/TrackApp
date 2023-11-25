@@ -4,10 +4,10 @@ and mesuring the estimated time using charts for targeted task.
 the app also can read CSV file imported from Notion template,and represent these data as chart.
 TrackApp provides a KanbanBoard to Manage Tasks
 
-    - Add new Task
-    - Add new column 
-    - Drag and drop tasks between columns 
-    - Drag and drop columns
+- Add new Task
+- Add new column 
+- Drag and drop tasks between columns 
+- Drag and drop columns
 ## :zap:Technologies
 
 + `Vite`
