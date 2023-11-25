@@ -7,7 +7,7 @@ TrackApp provides a KanbanBoard to Manage Tasks:
     - Add new column 
     - Drag and drop tasks between columns 
     - Drag and drop columns
-## :zap: -Technologies
+## :zap:Technologies
 
 + `Vite`
 + `React.js`
@@ -16,7 +16,7 @@ TrackApp provides a KanbanBoard to Manage Tasks:
 + `TailwindCss`
 + `Storybook` 
     
-## :- :gem: Running
+## ::gem:Running
 
 To run the project in your local environment, follow these steps:
   1. Clone the repository to your local machine.
@@ -25,6 +25,7 @@ To run the project in your local environment, follow these steps:
   1. Open http://localhost:5173 (or the address shown in your console) in your web browser to view the app.
   
 ## :- camera_flash:Demo Images
+
 ![Up1](https://github.com/medmks/TrackApp/assets/90214045/82a977ee-eadc-46d5-bdb5-1e0ef367bb38)
 
 ![Update2](https://github.com/medmks/TrackApp/assets/90214045/ef7a917f-2b30-42b7-804d-7b635c9b8261)
