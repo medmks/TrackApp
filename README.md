@@ -9,12 +9,12 @@ TrackApp provides a KanbanBoard to Manage Tasks:
     - Drag and drop columns
 ## :zap: -Technologies
 
-    `Vite`
-    `React.js`
-    `Chart.js`
-    `dnd kit`
-    `TailwindCss`
-    `Storybook` 
++ `Vite`
++ `React.js`
++ `Chart.js`
++ `dnd kit`
++ `TailwindCss`
++ `Storybook` 
     
 ## :- :gem: Running
 
