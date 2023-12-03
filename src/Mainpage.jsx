@@ -1,8 +1,13 @@
 import Habbits from "./habbits";
 import CercleProgress from "./Cercle";
+import BackGroundBloobs from "./Components/BackGroundBloobs"
 const Mainpage = () => {
   return (
-    <div className=" w-3/4 h-fit border border-stone-600 p-2  rounded-xl mr-2">
+    
+    <div className=" w-3/4 h-fit border border-stone-700 p-2  rounded-xl mr-2">
+
+<BackGroundBloobs/>
+
       <h3 className="font-medium text-secondary  p-3   ">Salam Mohamed </h3>
       <div className="flex flex-row  gap-3 pl-3">
         <div className="bg-green-500 w-fit p-1 rounded-full ">
@@ -27,7 +32,10 @@ const Mainpage = () => {
       <div className=" w-full ">
         <CercleProgress />
       </div>
-      <Habbits acivitiesNames={7} />
+      {/* <Habbits acivitiesNames={7} /> */}
+
+
+
     </div>
   );
 };
@@ -87,15 +95,3 @@ export default Mainpage;
 </div> */
 }
 
-// <div className="container">
-// 	<div className="blob-c">
-// 	<div className="shape-blob"></div>
-// 	<div className="shape-blob one"></div>
-// 	<div className="shape-blob two"></div>
-// 	<div className="shape-blob three"></div>
-//     <div className="shape-blob four"></div>
-//     <div className="shape-blob five"></div>
-//     <div className="shape-blob six"></div>
-// </div>
-// <h1>Undulating Background Blobs</h1>
-// </div>

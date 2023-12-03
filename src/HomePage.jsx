@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="  flex flex-row ">
         <Toolbar />
         <div className="flex flex-col w-full">
-          <Header />
+          {/* <Header /> */}
           <div className="flex flex-row">
             <Mainpage />
             <SideBar />

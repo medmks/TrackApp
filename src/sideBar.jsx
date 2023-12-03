@@ -38,12 +38,12 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-2/4  h-screen border border-stone-700 rounded-md flex flex-col gap-16  ">
+    <div className="w-2/4  h-screen border border-stone-700 rounded-md flex flex-col gap-16   ">
       {/* <div className=" flex justify-start mt-4 items-start"> */}
-      <Timer />
+      {/* <Timer /> */}
       {/* </div */}
 
-      <div className="  m-0 w-full    ">
+      <div className="  m-0 w-full mt-3   ">
         <input
           className=" hidden"
           type="file"

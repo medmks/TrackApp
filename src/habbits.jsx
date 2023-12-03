@@ -8,7 +8,7 @@ const HabbitTable = ({ element, index }) => {
       <div className="w-full flex justify-start items-center gap-4  flex-row ">
         <div
           className={`w-2 h-8 ${
-            randNum <= 5 ? "    bg-indigo-400 " : "  bg-indigo-700 "
+            randNum <= 5 ? "    bg-yellow-500 " : "  bg-yellow-700 "
           }   rounded-[1px] `}
         />
         <p className="text-[19px] ">{element}</p>
@@ -17,7 +17,7 @@ const HabbitTable = ({ element, index }) => {
         <div className="w-fit flex items-center p-1  h-4 border border-opacity-70  justify-start border-stone-600 rounded-xl ">
           <div className="w-[10em] h-1 bg-gray-400 ">
             <div
-              className={` bg-blue-600    h-1 ]`}
+              className={` bg-indigo-600     h-1 ]`}
               style={{ width: `${randNum}em` }}
             />
           </div>

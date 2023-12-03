@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,900");
 
 .container {
+  z-index: -10;
   background: transparent;
-  min-height: 30vh;
+  min-height: 50vh;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  
 }
 
 .blob-c {
@@ -144,7 +147,7 @@
   }
 }
 
-h1 {
+/* h1 {
   font-family: "Playfair Display", serif;
   font-size: 5em;
   letter-spacing: 2px;
@@ -154,4 +157,4 @@ h1 {
   position: absolute;
   z-index: 4;
   text-shadow: 2px 3px 15px rgba(0, 0, 0, 0.15);
-}
+} */
