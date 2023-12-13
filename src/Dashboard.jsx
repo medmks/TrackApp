@@ -53,8 +53,7 @@ const ProjectBoard=()=>{
       {
         Columns.map((col,i)=>{
           return (
-
-            <ColumnDashboard key={i} column={col} />
+            <ColumnDashboard key={i} mission={Missions.filter((mission)=> col.Id ===mission.idCol )} columns={col}  />
           )
         })
       }
