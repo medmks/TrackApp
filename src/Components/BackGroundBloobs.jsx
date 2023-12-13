@@ -1,7 +1,7 @@
-// import "./style.css";
+import "./style.css";
 const BackGroundBloobs = () => {
   return (
-    <div className="container">
+    <div className="container w-[115vh]">
       <div className="blob-c">
         <div className="shape-blob"></div>
         <div className="shape-blob one"></div>

@@ -33,15 +33,15 @@ export const Board = () => {
   );
 
   return (
-    <div className=" w-full mt-10  flex min-h-[420px]  items-start overflow-x-auto overflow-y-hidden px[40px]  ">
+    <div className=" mt-10  flex min-h-[420px]  items-start overflow-x-auto overflow-y-hidden px[40px]  border border-stone-700 p-5  rounded-xl mr-2  ">
       <DndContext
         sensors={sensors}
         onDragStart={OnDragStart}
         onDragEnd={OnDragEnd}
         onDragOver={onDragOver}
       >
-        <div className="m-auto flex gap-4">
-          <div className="flex gap-4">
+        <div className="m-auto flex gap-4 bg-black">
+          <div className="flex gap-4 ">
             <SortableContext items={columnsId}>
               {columns.map((col) => (
                 <ColomnContainer
@@ -61,7 +61,7 @@ export const Board = () => {
             onClick={() => {
               CreateNewColumns();
             }}
-            className=" m-1 w-[360px] h-[60px] cursor-pointer min-w-[360px] rounded-lg bg-mainsBckground border-ColumnBckground ring-rose-500 border-2 p-4   hover:ring-2 flex gap-2"
+            className=" m-1 w-[360px] h-[60px] cursor-pointer min-w-[360px] rounded-lg bg-[mainsBckground] border-ColumnBckground ring-rose-500 border-2 p-4   hover:ring-2 flex gap-2"
           >
             <PlusIcon /> Add Column
           </button>

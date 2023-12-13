@@ -12,7 +12,13 @@ const BarChart = (getdata) => {
   const [days, setdays] = useState(null);
 
   const [step, setstep] = useState(0);
-  const FakeData=[[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55],[55,55,55,55,55,55,55]]
+  const FakeData = [
+    [55, 55, 55, 55, 55, 55, 55],
+    [55, 55, 55, 55, 55, 55, 55],
+    [55, 55, 55, 55, 55, 55, 55],
+    [55, 55, 55, 55, 55, 55, 55],
+    [55, 55, 55, 55, 55, 55, 55],
+  ];
 
   const ApplyNumers = () => {
     console.log("This is from barchar ");
@@ -28,11 +34,9 @@ const BarChart = (getdata) => {
       setstep(min.length - 1);
       console.log(numbers);
     }
-    return numbers
-    
+    return numbers;
   };
   useEffect(() => {
-
     ApplyNumers();
   }, [getdata]);
 
@@ -122,13 +126,16 @@ const BarChart = (getdata) => {
   return (
     <div className=" ">
       <div className="flex justify-center flex-col flex-wrap rounded-3xl items-center    ">
-        <select id="selectOptions"
-        value={JSON.stringify(selectedActivity)} // Convert array to string when setting the value
-        onChange={handleSelectChange} >
-          <option className="p-2" value=''>
+        <select
+          id="selectOptions"
+          className="p-3"
+          value={JSON.stringify(selectedActivity)} // Convert array to string when setting the value
+          onChange={handleSelectChange}
+        >
+          <option className="" value="">
             Time on phone
           </option>
-          <option  value={JSON.stringify(FakeData)}>Activity one</option>
+          <option value={JSON.stringify(FakeData)}>Activity one</option>
           <option value="">Activity Two</option>
           <option value="">Activity Tree</option>
         </select>
