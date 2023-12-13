@@ -1,22 +1,13 @@
-import Toolbar from "./Toolbar";
-import Header from "./Header";
-import Mainpage from "./Mainpage";
-import SideBar from "./sideBar";
-
-const HomePage = () => {
+import ProjectBoard from "./Dashboard";
+const Home = () => {
   return (
-    <div>
-      <div className="  flex flex-row ">
-        <Toolbar />
-        <div className="flex flex-col w-full">
-          {/* <Header /> */}
-          <div className="flex flex-row">
-            <Mainpage />
-            <SideBar />
-          </div>
-        </div>
-      </div>
-    </div>
+  <div className="container mx-auto mt-4">
+      <h1 className="text-2xl font-bold">Home Page</h1>
+      <p>This is the Home page content.</p>
+<ProjectBoard/>
+  </div>
+
   );
 };
-export default HomePage;
+
+export default Home;

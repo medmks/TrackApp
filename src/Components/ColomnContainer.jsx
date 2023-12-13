@@ -56,7 +56,7 @@ const ColomnContainer = ({
     <div
       ref={setNodeRef}
       style={Style}
-      className="bg-zinc-900    w-[350px] h-[500px] max-h-[450px] rounded-md flex flex-col  "
+      className="bg-zinc-800  w-[350px] h-[500px] max-h-[450px] rounded-md flex flex-col  "
     >
       <div
         {...attributes}

@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import "./chart.css";
 import BarChart from "./ChartBar";
 import Activity from "./assets/Acivities";
-import Timer from "./Components/Timer";
+// import Timer from "./Components/Timer";
 const SideBar = () => {
   const [FetchedData, setFetchedData] = useState(null);
   const buttonRef = useRef(null);
@@ -38,7 +38,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-2/4  h-screen border border-stone-700 rounded-md flex flex-col gap-16   ">
+    <div className="w-2/4 mt-4  h-screen border border-stone-700 rounded-xl flex flex-col gap-16   ">
       {/* <div className=" flex justify-start mt-4 items-start"> */}
       {/* <Timer /> */}
       {/* </div */}

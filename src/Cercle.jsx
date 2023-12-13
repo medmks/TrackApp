@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState, useRef } from "react";
+import { pause, play } from "./utility/Extra";
 const PerformanceCard = ({
   percent,
   color,
@@ -35,65 +36,21 @@ const PerformanceCard = ({
     return () => clearInterval(intervalRef.current);
   }, [isPlaying]);
 
-  const pause = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-12 h-12"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
-      />
-    </svg>
-  );
-
-  const play = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-12 h-12"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-      />
-    </svg>
-  );
-
-  const restore = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-      />
-    </svg>
-  );
-
   return (
     <div
-      className="flex flex-wrap gap-14  max-w-sm min-w-fit flex-row  shadow-2xl shadow-black      px-10   border border-zinc-700  rounded-2xl mb-3"
+      className="flex flex-wrap gap-14  max-w-sm min-w-fit flex-row justify-center   shadow-2xl shadow-black      px-10   border border-zinc-700  rounded-2xl mb-3"
       style={{ backgroundColor: `` }}
     >
+      {/* <div className=" flex inset-0 top-0 left-0  ">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+      </svg>
+
+      </div> */}
       <div
         className="flex flex-shrink-0 items-center justify-center w-fit -m-6 overflow-hidden  rounded-full "
-        style={{ backgroundColor: `${CirleColor}` }}
+        style={{ backgroundColor: `${"#18181b"}` }}
+        // style={{background:"radial-gradient (circle,rgb(29, 38, 125),transparent 80%) "}}
       >
         <svg
           className="w-32 h-32   transform translate-x-1 translate-y-1"
@@ -109,10 +66,10 @@ const PerformanceCard = ({
             cy="60"
           />
           <circle
-            className={`${color}  flex flex-wrap  `}
+            className={`${""}  flex flex-wrap  `}
             style={{ color: `${color}` }}
             strokeWidth="5"
-            stroke="currentColor"
+            stroke="#6D67E4"
             strokeDasharray={circumference}
             data-percent="100"
             strokeDashoffset={circumference - (time / 100) * circumference}
@@ -125,8 +82,8 @@ const PerformanceCard = ({
         </svg>
 
         <span
-          className={`absolute text-2xl  ${''}`}
-          style={{ color: `${ isPlaying ? "#E84545":"#903749"}` }}
+          className={`absolute text-2xl  ${""}`}
+          style={{ color: `${isPlaying ? "#8D9EFF" : "#7091F5"}` }}
         >
           <button
             onClick={() => setIsPlaying(!isPlaying)}
@@ -138,20 +95,17 @@ const PerformanceCard = ({
         </span>
       </div>
 
-      <div className=" flex flex-col items-center justify-center    text-center ">
-        <p className=" font-medium text-gray-300 outline-0   sm:text-xl">
+      <div className=" flex flex-col items-center justify-center flex-wrap   text-center ">
+        <p className=" font-normal text-gray-400 outline-0  tracking-tighter sm:text-xl">
           {title}
         </p>
         <span
-          className={`text-xl font-medium ${''}   sm:block`}
-          style={{ color: `${ isPlaying ? "#E84545":"#903749"}` }}
+          className={`text-xl font-extralight tracking-wider   sm:block`}
+          style={{ color: `${isPlaying ? "#8D9EFF" : "#7091F5"}` }}
         >
           {FormatTime(time)}
         </span>
       </div>
-      {/* <div className=" w-12 h-full overflow-hidden   bg-neutral-700   rounded-r-2xl      absolute top-0 right-0  ">
-  
-      </div> */}
     </div>
   );
 };
@@ -188,7 +142,7 @@ const CercleProgress = () => {
           TextColor=""
           CirleColor="#191919"
         />
-
+        {/* 
         <PerformanceCard
           percent={0}
           color="text-blue-500"
@@ -206,7 +160,7 @@ const CercleProgress = () => {
           BackColor="#F4CE14"
           TextColor=""
           CirleColor="#191919"
-        />
+        /> */}
       </div>
     </div>
   );
